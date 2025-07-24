@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #cfaf3d;
+  --color-primary-dark: #a48928;
+  --color-text: hsla(0, 0%, 100%, 0.9);
+  --color-text-muted: hsla(0, 0%, 100%, 0.6);
+  --color-border: #344665;
+  --color-bg-light: #1e2c3e;
+  --color-bg: #192434;
+  --color-bg-dark: #0d131c;
+
+  --font-quicksand: "Quicksand", "sans-serif";
+}
+
+@layer base {
+  :root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    @apply bg-bg text-text h-screen w-screen;
+  }
+}
+
+@layer components {
+  .identify {
+    @apply rounded-md border-2 border-gray-700;
+  }
+}
+
+/* FONTS */
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/fonts/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}

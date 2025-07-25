@@ -1,20 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #cfaf3d;
-  --color-primary-dark: #a48928;
+  --color-primary: hsl(var(--primary));
+  --color-primary-dark: hsla(var(--primary) / 0.75);
   --color-text: hsla(0, 0%, 100%, 0.9);
   --color-text-muted: hsla(0, 0%, 100%, 0.6);
   --color-border: #344665;
   --color-bg-light: #1e2c3e;
-  --color-bg: #192434;
+  --color-bg: hsl(var(--bg));
   --color-bg-dark: #0d131c;
+  --color-bg-select: #2c415d;
+  --color-bg-gradient: linear-gradient(
+    to right,
+    var(--bg) 0%,
+    var(--primary) 50%,
+    var(--bg) 100%
+  );
 
   --font-quicksand: "Quicksand", "sans-serif";
 }
 
 @layer base {
   :root {
+    --primary: 47 60% 53%;
+    --bg: 214 36% 15%;
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -22,13 +32,13 @@
   }
 
   #root {
-    @apply bg-bg text-text h-screen w-screen;
+    @apply bg-bg text-text font-quicksand h-screen w-screen;
   }
 }
 
 @layer components {
   .identify {
-    @apply rounded-md border-2 border-gray-700;
+    @apply rounded-md border-2 border-white/5;
   }
 }
 

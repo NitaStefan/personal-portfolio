@@ -1,48 +1,49 @@
-import { Scroll, ScrollControls } from "@react-three/drei";
+import {
+  Environment,
+  OrbitControls,
+  Scroll,
+  ScrollControls,
+} from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Hero from "./components/hero";
+import Certificates from "./components/certificates";
+import Projects from "./components/projects";
+import Skills from "./components/skills";
+import Monitor from "./components/projects/3d/Monitor";
+import Lights from "./components/Lights";
 
 function App() {
   return (
     <Canvas>
-      {/* <OrbitControls enableZoom={false} /> */}
-      {/* <ambientLight intensity={Math.PI / 2} /> */}
-      <spotLight
-        position={[10, 10, 10]}
-        angle={0.15}
-        penumbra={1}
-        decay={0}
-        intensity={Math.PI}
-      />
-      <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+      {/* <OrbitControls /> */}
+      <Lights />
+      <Environment preset="city" environmentIntensity={0.1} />
 
-      {/* Setup scroll with 3 pages */}
+      {/* <ambientLight intensity={} /> */}
 
-      <ScrollControls pages={3} damping={0.03}>
-        {/* 3D content that scrolls */}
-
-        {/* <Scroll>
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
+      <ScrollControls pages={3} damping={0.001}>
+        <Scroll>
+          {/* <mesh>
+            <boxGeometry args={[0.1, 0.1, 0.1]} />
             <meshStandardMaterial color="hotpink" />
-          </mesh>
-          <mesh position={[0, -2, 0]}>
+          </mesh> */}
+          {/* <mesh position={[0, -2, 0]}>
             <boxGeometry args={[1, 1, 1]} />
             <meshNormalMaterial />
-          </mesh>
-        </Scroll> */}
+          </mesh> */}
+
+          {/* <Monitor /> */}
+        </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
           <main className="mx-auto max-w-5xl px-6 sm:px-12">
             <Hero />
 
-            <section className="identify h-100 p-5">
-              <h1 className="text-5xl font-bold">Welcome to Page 2</h1>
-            </section>
+            <Skills />
 
-            <section className="identify h-120 p-5">
-              <h1 className="text-5xl font-bold">Welcome to Page 3</h1>
-            </section>
+            <Projects />
+
+            <Certificates />
           </main>
         </Scroll>
       </ScrollControls>

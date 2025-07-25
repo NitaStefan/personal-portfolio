@@ -6,8 +6,10 @@ const Hero = () => {
       <Wave />
 
       <div className="bg-bg/60 border-border flex flex-col items-center rounded-full border p-2">
-        <h1 className="font-quicksand p-4 text-5xl font-medium">Ștefan Niță</h1>
-        <h2 className="text-primary text-xl italic">Full-Stack Developer</h2>
+        <h1 className="p-4 text-5xl font-medium">Ștefan Niță</h1>
+        <h2 className="text-primary font-sans text-xl italic">
+          Full-Stack Developer
+        </h2>
       </div>
     </section>
   );

@@ -12,29 +12,30 @@ const Projects = () => {
   const currProject = projects[projectNo];
 
   return (
-    <section className="identify relative h-200 py-5">
+    <>
       <SectionHeading text="Projects" />
-
-      <ProjectHeading
-        title={currProject.title}
-        subtitle={currProject.subtitle}
-      />
-
-      <div className="mt-20">
-        {currProject.features.map((feature) => (
-          <Feature feature={feature} />
-        ))}
-      </div>
-
-      <div className="absolute bottom-10 flex flex-col gap-8">
-        <ProjectImages images={currProject.images} />
-
-        <ProjectSelection
-          no={projectNo}
-          handleSelect={(index) => setProjectNo(index)}
+      <section className="h-300 lg:h-200">
+        <ProjectHeading
+          title={currProject.title}
+          subtitle={currProject.subtitle}
         />
-      </div>
-    </section>
+
+        <div className="mt-120 flex flex-col gap-8 lg:mt-20">
+          <div className="order-2 grid grid-cols-2 flex-col gap-2 text-sm sm:text-base lg:order-1 lg:flex lg:w-100">
+            {currProject.features.map((feature) => (
+              <Feature feature={feature} />
+            ))}
+          </div>
+
+          <ProjectImages images={currProject.images} />
+
+          <ProjectSelection
+            no={projectNo}
+            handleSelect={(index) => setProjectNo(index)}
+          />
+        </div>
+      </section>
+    </>
   );
 };
 

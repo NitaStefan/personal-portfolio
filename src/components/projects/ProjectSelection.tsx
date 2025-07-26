@@ -8,7 +8,7 @@ const ProjectSelection = ({
   handleSelect: (index: number) => void;
 }) => {
   return (
-    <div className="bg-bg-light border-border flex w-100 flex-col items-start gap-2 rounded-2xl border p-2 font-medium">
+    <div className="bg-bg-light border-border order-3 flex flex-col items-start gap-1 rounded-2xl border p-2 text-sm font-medium sm:gap-2 sm:text-base lg:w-100">
       {projects.map((project, index) => {
         const selected = index === no;
 

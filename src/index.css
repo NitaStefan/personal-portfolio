@@ -18,6 +18,8 @@
   );
 
   --font-quicksand: "Quicksand", "sans-serif";
+
+  --breakpoint-xs: 24rem;
 }
 
 @layer base {

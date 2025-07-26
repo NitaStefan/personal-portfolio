@@ -36,7 +36,7 @@ function App() {
         </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
-          <main className="mx-auto max-w-5xl px-6 sm:px-12">
+          <main className="mx-auto max-w-5xl px-5 sm:px-12">
             <Hero />
 
             <Skills />

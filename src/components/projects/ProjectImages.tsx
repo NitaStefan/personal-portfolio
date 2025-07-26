@@ -1,6 +1,6 @@
 import { cn } from "@sglara/cn";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 const ProjectImages = ({
   images,
@@ -20,13 +20,13 @@ const ProjectImages = ({
 
   return (
     <>
-      <div className="mt-10 flex h-30 w-100 gap-2">
+      <div className="order-1 flex h-30 gap-1 sm:h-25 sm:gap-2 lg:order-2 lg:h-30 lg:w-100">
         <ArrowWrapper
           handleClick={() => setActiveImage((prev) => prev - 1)}
           disabled={activeImage === 0}
-        >
-          <ArrowBigLeft />
-        </ArrowWrapper>
+          direction="left"
+          hide
+        />
 
         {images.map((image, index) => {
           const isActive = activeImage === index;
@@ -36,7 +36,7 @@ const ProjectImages = ({
               onClick={() => setActiveImage(index)}
               className={cn(
                 "flex basis-0 flex-col items-center gap-2",
-                "bg-bg-light border-border rounded-2xl border p-1 py-3 text-[10px] opacity-40",
+                "bg-bg-light border-border rounded-2xl border px-1 py-3 text-[10px] opacity-40",
                 "transition-all duration-250 ease-out",
                 hasThreeImages ? "grow-2" : "grow",
                 isActive && "grow-3 text-sm font-medium opacity-100",
@@ -51,36 +51,46 @@ const ProjectImages = ({
           );
         })}
 
-        <ArrowWrapper
-          handleClick={() => setActiveImage((prev) => prev + 1)}
-          disabled={activeImage === images.length - 1}
-        >
-          <ArrowBigRight />
-        </ArrowWrapper>
+        <div className="flex flex-col gap-1">
+          <ArrowWrapper
+            handleClick={() => setActiveImage((prev) => prev + 1)}
+            disabled={activeImage === images.length - 1}
+            direction="right"
+          />
+          <ArrowWrapper
+            handleClick={() => setActiveImage((prev) => prev - 1)}
+            disabled={activeImage === 0}
+            direction="left"
+          />
+        </div>
       </div>
     </>
   );
 };
 
 const ArrowWrapper = ({
-  children,
   handleClick,
   disabled,
+  direction,
+  hide = false,
 }: {
-  children: ReactNode;
   handleClick: () => void;
   disabled: boolean;
+  direction: "left" | "right";
+  hide?: boolean;
 }) => {
   return (
     <button
       onClick={handleClick}
       disabled={disabled}
       className={cn(
-        "bg-bg-light border-border flex items-center rounded-2xl border p-2",
+        "bg-bg-light border-border flex grow items-center rounded-2xl border p-2",
         disabled && "cursor-default opacity-40",
+        direction === "left" &&
+          (hide ? "xs:block hidden grow-0" : "xs:hidden block"),
       )}
     >
-      {children}
+      {direction === "left" ? <ArrowBigLeft /> : <ArrowBigRight />}
     </button>
   );
 };

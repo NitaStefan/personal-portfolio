@@ -1,5 +1,3 @@
-import { CircleCheckBig } from "lucide-react";
-
 const Feature = ({ feature }: { feature: string }) => {
   return (
     <p className="border-primary flex items-center gap-2 rounded-full border border-dashed px-2 py-1">

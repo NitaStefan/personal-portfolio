@@ -20,7 +20,7 @@ const ProjectImages = ({
 
   return (
     <>
-      <div className="order-1 flex h-30 gap-1 sm:h-25 sm:gap-2 lg:order-2 lg:h-30 lg:w-100">
+      <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-100">
         <ArrowWrapper
           handleClick={() => setActiveImage((prev) => prev - 1)}
           disabled={activeImage === 0}
@@ -36,10 +36,11 @@ const ProjectImages = ({
               onClick={() => setActiveImage(index)}
               className={cn(
                 "flex basis-0 flex-col items-center gap-2",
-                "bg-bg-light border-border rounded-2xl border px-1 py-3 text-[10px] opacity-40",
-                "transition-all duration-250 ease-out",
+                "bg-bg-light border-border rounded-2xl border px-1 py-3 text-[11px] opacity-40",
+                "transition-all duration-200 ease-out",
                 hasThreeImages ? "grow-2" : "grow",
-                isActive && "grow-3 text-sm font-medium opacity-100",
+                isActive &&
+                  "grow-3 text-sm font-medium opacity-100 sm:text-base",
                 isActive && (hasThreeImages ? "px-3" : "px-2"),
               )}
             >

@@ -126,3 +126,10 @@ export const projects: Project[] = [
     features: ["CRUD Operations", "Layered Architecture"],
   },
 ];
+
+// PAGES HEIGHTS
+export const PAGES_HEIGHTS = {
+  SKILLS: 500,
+  PROJECTS: { MAX_LG: 1200, LG: 900 },
+  CERTIFICATES: 320,
+};

@@ -19,7 +19,7 @@
 
   --font-quicksand: "Quicksand", "sans-serif";
 
-  --breakpoint-xs: 24rem;
+  --breakpoint-xs: 24.5rem;
 }
 
 @layer base {
@@ -44,7 +44,7 @@
 
 @layer components {
   .identify {
-    @apply rounded-md border-2 border-white/5;
+    @apply rounded-2xl border-2 border-white/5;
   }
 }
 

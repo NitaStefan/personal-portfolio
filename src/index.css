@@ -34,6 +34,10 @@
   #root {
     @apply bg-bg text-text font-quicksand h-screen w-screen;
   }
+
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 @layer components {

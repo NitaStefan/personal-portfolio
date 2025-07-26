@@ -1,14 +1,21 @@
 import { projects } from "../../lib/constants";
 
-const ProjectSelection = ({ no }: { no: number }) => {
+const ProjectSelection = ({
+  no,
+  handleSelect,
+}: {
+  no: number;
+  handleSelect: (index: number) => void;
+}) => {
   return (
-    <div className="bg-bg-light border-border mt-5 flex flex-col items-start gap-2 rounded-xl border p-2 font-medium">
+    <div className="bg-bg-light border-border flex w-100 flex-col items-start gap-2 rounded-2xl border p-2 font-medium">
       {projects.map((project, index) => {
         const selected = index === no;
 
         return (
           <button
-            className={`${selected && "bg-bg-select"} flex w-full items-center justify-between rounded-md px-2 py-1`}
+            onClick={() => handleSelect(index)}
+            className={`${selected && "bg-bg-select"} flex w-full items-center justify-between rounded-lg px-2 py-1`}
           >
             <div className="flex items-center gap-2">
               {project.faviconPath && (
@@ -30,10 +37,10 @@ const ProjectSelection = ({ no }: { no: number }) => {
                   <img
                     src={`/logo/${tech.name}.svg`}
                     alt={tech.name}
-                    width={24}
-                    height={24}
+                    width={30}
+                    height={30}
                     style={{ zIndex: z }}
-                    className={`${selected ? "border-bg-select bg-bg-select" : "border-bg-light bg-bg-light"} ${tech.circle && "rounded-full"} relative -ml-2 border-3`}
+                    className={`${selected ? "border-bg-select bg-bg-select" : "border-bg-light bg-bg-light"} ${tech.circle && "rounded-full"} relative -ml-2.5 border-4`}
                   />
                 );
               })}

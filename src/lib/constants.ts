@@ -12,6 +12,20 @@ export const projects: Project[] = [
       { name: "supabase", circle: true },
     ],
     features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4"],
+    images: [
+      {
+        path: "/example/peak-planner.png",
+        description: "Visually Appealing Design",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Simple Navigation Controls",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Some Final Step Description",
+      },
+    ],
     faviconPath: "/projects-ico/autodac.svg",
     link: "https://www.autodac.ro/masini",
   },
@@ -35,6 +49,21 @@ export const projects: Project[] = [
       "Highly Customizable & Versatile",
       "JWT Authentication Filter",
     ],
+    images: [
+      { path: "/example/peak-planner.png", description: "Highly Diverse" },
+      {
+        path: "/example/peak-planner.png",
+        description: "Visually Appealing Design",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Simple Navigation Controls",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Some Final Step Description",
+      },
+    ],
     faviconPath: "/projects-ico/peak-planner.svg",
     link: "https://peak-planner-frontend.vercel.app/",
   },
@@ -53,6 +82,21 @@ export const projects: Project[] = [
       "NURBS-Based Modeling",
       "Precise Geometric Representation",
     ],
+    images: [
+      { path: "/example/peak-planner.png", description: "Highly Diverse" },
+      {
+        path: "/example/peak-planner.png",
+        description: "Visually Appealing Design",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Simple Navigation Controls",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Some Final Step Description",
+      },
+    ],
     faviconPath: "/projects-ico/nurbs.svg",
     link: "https://nitastefan.github.io/NURBS-Visualizer/",
   },
@@ -60,9 +104,24 @@ export const projects: Project[] = [
     title: "Hospital Appointments Manager",
     subtitle: "Application for managing hospital appointments",
     techStack: [
-      { name: "javafx", circle: false },
-      { name: "sqlite", circle: false },
+      { name: "javafx", circle: true },
+      { name: "sqlite", circle: true },
       { name: "jdbc", circle: false },
+    ],
+    images: [
+      { path: "/example/peak-planner.png", description: "Highly Diverse" },
+      {
+        path: "/example/peak-planner.png",
+        description: "Visually Appealing Design",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Simple Navigation Controls",
+      },
+      {
+        path: "/example/peak-planner.png",
+        description: "Some Final Step Description",
+      },
     ],
     features: ["CRUD Operations", "Layered Architecture"],
   },

@@ -2,7 +2,7 @@ import Wave from "./Wave";
 
 const Hero = () => {
   return (
-    <section className="relative flex h-dvh flex-col items-center justify-center">
+    <section className="relative flex h-screen flex-col items-center justify-center">
       <Wave />
 
       <div className="bg-bg/60 border-border flex flex-col items-center rounded-full border p-4">

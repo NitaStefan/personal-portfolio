@@ -1,35 +1,42 @@
-import { useGLTF, useScroll } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { PAGES_HEIGHTS } from "../../../lib/constants";
+import { useControls } from "leva";
 
 const Monitor = () => {
   const { scene } = useGLTF("/models/monitor/scene.gltf");
   const { size, viewport } = useThree();
-  // const data = useScroll();
   const ref = useRef<THREE.Group>(null);
 
-  console.log(size.height);
+  const { scalar, position, positionFactor, scalarFactor } = useControls({
+    scalar: { value: 5.1, min: 0, max: 10 },
+    scalarFactor: { value: 0.15, min: 0.1, max: 0.5 },
+    position: { value: 0.9, min: 0, max: 1 },
+    positionFactor: { value: 0.07, min: 0, max: 0.1 },
+  });
 
-  useFrame(() => {
-    // const offset = data.offset; // scroll position (0 to 1)
+  useEffect(() => {
     const monitor = ref.current;
 
     if (monitor) {
-      // monitor.scale.setScalar(3 + viewport.width * 0.1);
-      monitor.scale.setScalar(0.1);
+      monitor.scale.setScalar(scalar - size.height * scalarFactor * 0.01);
 
-      // Rotate around Y axis as you scroll
-      monitor.rotation.y = -0.5;
+      monitor.rotation.y = -0.4;
 
-      // Move upward as you scroll
-      monitor.position.y = -0.005 * size.height;
-      //  - 8;
-      monitor.position.x = viewport.width * 0.15;
+      monitor.position.x = position + viewport.width * positionFactor;
+      // monitor.position.y = -3.84 - 15 * (PAGES_HEIGHTS.SKILLS / size.height);
     }
-
-    // console.log(data.offset);
-  });
+  }, [
+    size,
+    viewport.width,
+    //LEVA
+    scalar,
+    position,
+    positionFactor,
+    scalarFactor,
+  ]);
 
   return <primitive object={scene} ref={ref} />;
 };

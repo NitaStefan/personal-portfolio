@@ -11,11 +11,12 @@ const Test3D = () => {
     const cube = ref.current;
 
     if (cube) {
-      cube.scale.setScalar(0.05);
+      cube.scale.setScalar(0.04);
 
       cube.position.y =
-        -4 - // based on hero sect
-        10 * (PAGES_HEIGHTS.SKILLS / size.height); // similar to absolute relative to skills section
+        -3.84 - // based on hero sect
+        // 10 * (PAGES_HEIGHTS.SKILLS / size.height) + // similar to absolute relative to skills section
+        0;
     }
   });
 

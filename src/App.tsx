@@ -13,7 +13,6 @@ import Monitor from "./components/projects/3d/Monitor";
 import Lights from "./components/Lights";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
-import Test3D from "./components/projects/3d/Test3D";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -30,19 +29,19 @@ function App() {
 
       <ScrollControls pages={pages} damping={0.001}>
         <Scroll>
-          <Test3D />
-          {/* <Monitor /> */}
+          {/* <Test3D /> */}
+          <Monitor />
         </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
-          <main className="mx-auto max-w-5xl px-5 opacity-40 sm:px-12">
-            <Hero />
+          <main className="mx-auto max-w-5xl px-5 sm:px-12">
+            {/* <Hero />
 
-            <Skills />
+            <Skills /> */}
 
             <Projects />
 
-            <Certificates />
+            {/* <Certificates /> */}
 
             {/* TEST */}
             <div className="identify h-25">

@@ -10,22 +10,21 @@ import Certificates from "./components/certificates";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
 import Monitor from "./components/projects/3d/Monitor";
-import Lights from "./components/Lights";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const pages =
-    1 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
+    1.5 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
   // const pages =
   //   1.3 + getTotalContentHeightInPx(isLargeScreen) / window.screen.height; // hero + the rest
 
   return (
     <Canvas>
       {/* <OrbitControls /> */}
-      <Lights />
-      <Environment preset="city" environmentIntensity={0.1} />
+      {/* <Lights /> */}
+      <Environment preset="city" environmentIntensity={0.15} />
 
       <ScrollControls pages={pages} damping={0.001}>
         <Scroll>
@@ -35,13 +34,13 @@ function App() {
 
         <Scroll html style={{ width: "100%" }}>
           <main className="mx-auto max-w-5xl px-5 sm:px-12">
-            {/* <Hero />
+            <Hero />
 
-            <Skills /> */}
+            <Skills />
 
             <Projects />
 
-            {/* <Certificates /> */}
+            <Certificates />
 
             {/* TEST */}
             <div className="identify h-25">

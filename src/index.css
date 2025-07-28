@@ -5,17 +5,20 @@
   --color-primary-dark: hsla(var(--primary) / 0.75);
   --color-text: hsla(0, 0%, 100%, 0.9);
   --color-text-muted: hsla(0, 0%, 100%, 0.6);
-  --color-border: #344665;
   --color-bg-light: #1e2c3e;
   --color-bg: hsl(var(--bg));
   --color-bg-dark: #0d131c;
-  --color-bg-select: #2c415d;
+  --color-bg-select: hsl(214 36% 26%);
+
   --color-bg-gradient: linear-gradient(
     to right,
     var(--bg) 0%,
     var(--primary) 50%,
     var(--bg) 100%
   );
+
+  --color-border: #344665; /* bg-light-border */
+  --color-bg-select-border: hsl(214 36% 38%);
 
   --font-quicksand: "Quicksand", "sans-serif";
 
@@ -44,7 +47,7 @@
 
 @layer components {
   .identify {
-    @apply rounded-2xl border-2 border-white/5;
+    @apply rounded-2xl border-2 border-white/10;
   }
 }
 

@@ -35,16 +35,16 @@ const ProjectImages = ({
             <button
               onClick={() => setActiveImage(index)}
               className={cn(
-                "flex basis-0 flex-col items-center gap-2",
-                "bg-bg-light border-border rounded-2xl border px-1 py-3 text-[11px] opacity-40",
+                "flex basis-0 flex-col items-center gap-1",
+                "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
                 "transition-all duration-200 ease-out",
                 hasThreeImages ? "grow-2" : "grow",
                 isActive &&
-                  "grow-3 text-sm font-medium opacity-100 sm:text-base",
+                  "grow-3 text-sm font-medium opacity-85 sm:text-base",
                 isActive && (hasThreeImages ? "px-3" : "px-2"),
               )}
             >
-              <span className="border-border rounded-full border px-2 font-normal">
+              <span className="border-bg-select-border flex h-6 w-6 items-center justify-center rounded-full border font-normal">
                 {index + 1}
               </span>
               <p className="flex grow items-center">{image.description}</p>
@@ -85,7 +85,7 @@ const ArrowWrapper = ({
       onClick={handleClick}
       disabled={disabled}
       className={cn(
-        "bg-bg-light border-border flex grow items-center rounded-2xl border p-2",
+        "bg-bg-select border-bg-select-border flex grow items-center rounded-2xl border p-2 opacity-85",
         disabled && "cursor-default opacity-40",
         direction === "left" &&
           (hide ? "xs:block hidden grow-0" : "xs:hidden block"),

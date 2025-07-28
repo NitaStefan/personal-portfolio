@@ -10,12 +10,12 @@ const Lights = () => {
 
   return (
     <spotLight
-      //   ref={spot}
-      position={[0, 4, 0]}
-      angle={0.5}
+      // ref={spot}
+      position={[1, 4, 0.2]}
+      angle={1}
       penumbra={1}
       decay={0}
-      intensity={0.2}
+      intensity={0.5}
       castShadow
     />
   );

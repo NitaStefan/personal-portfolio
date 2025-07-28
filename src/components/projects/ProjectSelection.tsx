@@ -15,7 +15,7 @@ const ProjectSelection = ({
         return (
           <button
             onClick={() => handleSelect(index)}
-            className={`${selected && "bg-bg-select"} flex w-full items-center justify-between rounded-lg px-2 py-1`}
+            className={`${selected && "bg-bg-select border-bg-select-border border"} flex w-full items-center justify-between rounded-lg px-2 py-1`}
           >
             <div className="flex items-center gap-2">
               {project.faviconPath && (

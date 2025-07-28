@@ -20,7 +20,7 @@ const Projects = () => {
   return (
     <>
       <SectionHeading text="Projects" />
-      <section style={{ height: `${sectionHeight}px` }} className="identify">
+      <section style={{ height: `${sectionHeight}px` }} className="">
         <ProjectHeading
           title={currProject.title}
           subtitle={currProject.subtitle}

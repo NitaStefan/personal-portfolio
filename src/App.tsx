@@ -19,11 +19,11 @@ import { projectTags } from "./lib/constants";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
-  const pages =
-    1.5 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
-
   const [activeImage, setActiveImage] = useState(1);
   const [projectNo, setProjectNo] = useState(0);
+
+  const pages =
+    1.5 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
 
   return (
     <Canvas style={{ width: "100vw", height: "100vh" }}>
@@ -52,9 +52,7 @@ function App() {
               projectNo={projectNo}
               handleSelect={(index) => setProjectNo(index)}
               activeImage={activeImage}
-              setImg={(no: number) => {
-                setActiveImage(no);
-              }}
+              setImg={(no: number) => setActiveImage(no)}
             />
 
             <Certificates />

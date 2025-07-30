@@ -1,7 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { PAGES_HEIGHTS } from "../../../lib/constants";
-// import { useControls } from "leva";
 import MonitorLight from "./MonitorLight";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useRef } from "react";
@@ -20,17 +19,6 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
 
   const { size, viewport } = useThree();
 
-  // const { scalar, position, positionFactor, scalarFactor } = useControls(
-  //   "Monitor Settings",
-  //   {
-  //     scalar: { value: 5.1, min: 0, max: 10 },
-  //     scalarFactor: { value: 0.15, min: 0.1, max: 0.5 },
-  //     position: { value: 0.8, min: 0, max: 1 },
-  //     positionFactor: { value: 0.06, min: 0, max: 0.1 },
-  //   },
-  //   { collapsed: true },
-  // );
-
   const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.06 : 0;
   const grPositionY =
     (isLargeScreen ? -3.84 : isSmallScreen ? -3.5 : -2.6) -
@@ -43,8 +31,8 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
   return (
     <>
       <group scale={grScale} position={[grPositionX, grPositionY, 0]}>
+        <MonitorLight />
         <group rotation-y={isLargeScreen ? -0.38 : 0}>
-          <MonitorLight />
           <primitive object={monitorScene} ref={monitorRef} />
           <primitive
             object={keyboardScene}

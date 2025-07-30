@@ -1,22 +1,33 @@
-import { useHelper } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { useHelper } from "@react-three/drei";
 
 const MonitorLight = () => {
-  const spot = useRef<THREE.SpotLight>(null);
+  const dirLight = useRef<THREE.DirectionalLight>(null);
+  const target = useRef<THREE.Object3D>(null);
 
-  //@ts-expect-error it works
-  useHelper(spot, THREE.SpotLightHelper, "yellow");
+  // Debug helper
+  // useHelper(dirLight, THREE.DirectionalLightHelper, 1, "yellow");
+
+  // Attach target to the light
+  useEffect(() => {
+    if (dirLight.current && target.current) {
+      dirLight.current.target = target.current;
+    }
+  }, []);
 
   return (
-    <spotLight
-      //   ref={spot}
-      position={[-0.6, 0.8, 0]}
-      angle={0.8}
-      penumbra={1}
-      intensity={5}
-      castShadow
-    />
+    <>
+      <directionalLight
+        ref={dirLight}
+        position={[-0.2, 0, -0.5]}
+        intensity={0.18}
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
+      />
+      {/* Invisible target object for direction */}
+      <object3D ref={target} position={[-0.3, -1.5, 0]} />
+    </>
   );
 };
 

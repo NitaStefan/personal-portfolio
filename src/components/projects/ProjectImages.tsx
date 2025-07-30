@@ -1,39 +1,38 @@
 import { cn } from "@sglara/cn";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const ProjectImages = ({
   images,
+  activeImage,
+  setImg,
 }: {
-  images: {
-    path: string;
-    description: string;
-  }[];
+  images: string[];
+  activeImage: number;
+  setImg: (no: number) => void;
 }) => {
-  const [activeImage, setActiveImage] = useState(1);
-
   const hasThreeImages = images.length === 3; // else 4
 
   useEffect(() => {
-    setActiveImage(0);
+    setImg(0);
   }, [images]);
 
   return (
     <>
       <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-100">
         <ArrowWrapper
-          handleClick={() => setActiveImage((prev) => prev - 1)}
+          handleClick={() => setImg(activeImage - 1)}
           disabled={activeImage === 0}
           direction="left"
           hide
         />
 
-        {images.map((image, index) => {
+        {images.map((imageDesc, index) => {
           const isActive = activeImage === index;
 
           return (
             <button
-              onClick={() => setActiveImage(index)}
+              onClick={() => setImg(index)}
               className={cn(
                 "flex basis-0 flex-col items-center gap-1",
                 "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
@@ -47,19 +46,19 @@ const ProjectImages = ({
               <span className="border-bg-select-border flex h-6 w-6 items-center justify-center rounded-full border font-normal">
                 {index + 1}
               </span>
-              <p className="flex grow items-center">{image.description}</p>
+              <p className="flex grow items-center">{imageDesc}</p>
             </button>
           );
         })}
 
         <div className="flex flex-col gap-1">
           <ArrowWrapper
-            handleClick={() => setActiveImage((prev) => prev + 1)}
+            handleClick={() => setImg(activeImage + 1)}
             disabled={activeImage === images.length - 1}
             direction="right"
           />
           <ArrowWrapper
-            handleClick={() => setActiveImage((prev) => prev - 1)}
+            handleClick={() => setImg(activeImage - 1)}
             disabled={activeImage === 0}
             direction="left"
           />

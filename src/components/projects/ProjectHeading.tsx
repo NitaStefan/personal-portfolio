@@ -1,14 +1,38 @@
+import { cn } from "@sglara/cn";
+import { ExternalLink } from "lucide-react";
+
 const ProjectHeading = ({
   title,
   subtitle,
+  link,
 }: {
   title: string;
   subtitle: string;
+  link?: string;
 }) => {
+  const TitleComp = (
+    <h2
+      className={cn(
+        "text-primary flex items-center justify-center gap-2 text-center text-xl font-bold",
+        link && "cursor-pointer",
+      )}
+    >
+      {title}
+      {link && <ExternalLink size={16} />}
+    </h2>
+  );
+
   return (
-    <div className="pt-30">
+    <div className="pt-25 sm:pt-30">
       <div className="from-bg via-primary to-bg mb-2 h-0.5 bg-gradient-to-r" />
-      <h2 className="text-primary text-center text-xl font-bold">{title}</h2>
+      {link ? (
+        <a target="_blank" href={link}>
+          {TitleComp}
+        </a>
+      ) : (
+        TitleComp
+      )}
+
       <p className="text-text-muted text-center font-sans text-sm italic sm:text-base">
         {subtitle}
       </p>

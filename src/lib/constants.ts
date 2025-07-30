@@ -13,18 +13,9 @@ export const projects: Project[] = [
     ],
     features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4"],
     images: [
-      {
-        path: "/example/peak-planner.png",
-        description: "Visually Appealing Design",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Simple Navigation Controls",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Some Final Step Description",
-      },
+      "Highly Diverse",
+      "Visually Appealing Design",
+      "Simple Navigation Controls",
     ],
     faviconPath: "/projects-ico/autodac.svg",
     link: "https://www.autodac.ro/masini",
@@ -50,19 +41,10 @@ export const projects: Project[] = [
       "JWT Authentication Filter",
     ],
     images: [
-      { path: "/example/peak-planner.png", description: "Highly Diverse" },
-      {
-        path: "/example/peak-planner.png",
-        description: "Visually Appealing Design",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Simple Navigation Controls",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Some Final Step Description",
-      },
+      "Highly Diverse",
+      "Visually Appealing Design",
+      "Simple Navigation Controls",
+      "Some Final Step Description",
     ],
     faviconPath: "/projects-ico/peak-planner.svg",
     link: "https://peak-planner-frontend.vercel.app/",
@@ -83,19 +65,9 @@ export const projects: Project[] = [
       "Precise Geometric Representation",
     ],
     images: [
-      { path: "/example/peak-planner.png", description: "Highly Diverse" },
-      {
-        path: "/example/peak-planner.png",
-        description: "Visually Appealing Design",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Simple Navigation Controls",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Some Final Step Description",
-      },
+      "Highly Diverse",
+      "Visually Appealing Design",
+      "Simple Navigation Controls",
     ],
     faviconPath: "/projects-ico/nurbs.svg",
     link: "https://nitastefan.github.io/NURBS-Visualizer/",
@@ -109,23 +81,16 @@ export const projects: Project[] = [
       { name: "jdbc", circle: false },
     ],
     images: [
-      { path: "/example/peak-planner.png", description: "Highly Diverse" },
-      {
-        path: "/example/peak-planner.png",
-        description: "Visually Appealing Design",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Simple Navigation Controls",
-      },
-      {
-        path: "/example/peak-planner.png",
-        description: "Some Final Step Description",
-      },
+      "Highly Diverse",
+      "Visually Appealing Design",
+      "Simple Navigation Controls",
     ],
+
     features: ["CRUD Operations", "Layered Architecture"],
   },
 ];
+
+export const projectTags = ["autodac", "peak-planner", "nurbs", "hospital"];
 
 // PAGES HEIGHTS
 export const PAGES_HEIGHTS = {

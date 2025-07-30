@@ -4,9 +4,11 @@ import { useRef, type RefObject } from "react";
 import * as THREE from "three";
 
 const HtmlImage = ({
+  imgUrl,
   ref,
   isLg,
 }: {
+  imgUrl: string;
   ref: RefObject<THREE.Group<THREE.Object3DEventMap> | null>;
   isLg: boolean;
 }) => {
@@ -32,14 +34,10 @@ const HtmlImage = ({
       transform
       portal={{ current: gl.domElement.parentNode as HTMLElement }}
       pointerEvents="none"
-      position={[0, 0.072, 0.03]}
+      position={[0, 0.075, 0.03]}
     >
       <div ref={divRef} className="perspective-[60px]">
-        <img
-          src="/projects-img/autodac-dashboard.png"
-          width={40}
-          className={isLg ? "-rotate-y-22" : ""}
-        />
+        <img src={imgUrl} width={40} className={isLg ? "-rotate-y-22" : ""} />
       </div>
     </Html>
   );

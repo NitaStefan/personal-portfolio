@@ -1,6 +1,7 @@
 import {
   Environment,
   OrbitControls,
+  Preload,
   Scroll,
   ScrollControls,
 } from "@react-three/drei";
@@ -13,13 +14,16 @@ import Monitor from "./components/projects/3d/Monitor";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
 import Test3D from "./components/projects/3d/Test3D";
+import { Suspense, useState } from "react";
+import { projectTags } from "./lib/constants";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const pages =
     1.5 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
-  // const pages =
-  //   1.3 + getTotalContentHeightInPx(isLargeScreen) / window.screen.height; // hero + the rest
+
+  const [activeImage, setActiveImage] = useState(1);
+  const [projectNo, setProjectNo] = useState(0);
 
   return (
     <Canvas style={{ width: "100vw", height: "100vh" }}>
@@ -30,7 +34,12 @@ function App() {
       <ScrollControls pages={pages} damping={0.001}>
         <Scroll>
           {/* <Test3D /> */}
-          <Monitor />
+          <Suspense fallback={null}>
+            <Monitor
+              imgUrl={`/projects-img/${projectTags[projectNo]}-${activeImage + 1}.png`}
+            />
+            <Preload all />
+          </Suspense>
         </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
@@ -39,7 +48,14 @@ function App() {
 
             <Skills />
 
-            <Projects />
+            <Projects
+              projectNo={projectNo}
+              handleSelect={(index) => setProjectNo(index)}
+              activeImage={activeImage}
+              setImg={(no: number) => {
+                setActiveImage(no);
+              }}
+            />
 
             <Certificates />
 

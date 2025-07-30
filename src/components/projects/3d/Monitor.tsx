@@ -8,8 +8,9 @@ import { useRef } from "react";
 import * as THREE from "three";
 import HtmlImage from "./HtmlImage";
 
-const Monitor = () => {
+const Monitor = ({ imgUrl }: { imgUrl: string }) => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+  const isSmallScreen = useMediaQuery("(min-width: 640px)");
 
   const { scene: monitorScene } = useGLTF("/models/monitor/scene.gltf");
   const { scene: keyboardScene } = useGLTF("/models/keyboard/scene.gltf");
@@ -32,7 +33,8 @@ const Monitor = () => {
 
   const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.06 : 0;
   const grPositionY =
-    (isLargeScreen ? -3.84 : -3.3) - 15 * (PAGES_HEIGHTS.SKILLS / size.height);
+    (isLargeScreen ? -3.84 : isSmallScreen ? -3.5 : -2.6) -
+    15 * (PAGES_HEIGHTS.SKILLS / size.height);
 
   const scalarVal = isLargeScreen ? 5.1 : 2.8;
   const maxLg = isLargeScreen ? 0 : viewport.width * 0.4;
@@ -58,7 +60,7 @@ const Monitor = () => {
           />
         </group>
 
-        <HtmlImage ref={monitorRef} isLg={isLargeScreen} />
+        <HtmlImage ref={monitorRef} isLg={isLargeScreen} imgUrl={imgUrl} />
       </group>
     </>
   );

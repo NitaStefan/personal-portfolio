@@ -1,5 +1,6 @@
-type Image = { path: string; description: string };
-type ThreeOrFourImages = [Image, Image, Image] | [Image, Image, Image, Image];
+type ThreeOrFourImages =
+  | [string, string, string]
+  | [string, string, string, string];
 
 export type Project = {
   title: ProjectTitle;

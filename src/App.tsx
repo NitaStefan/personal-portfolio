@@ -12,6 +12,7 @@ import Skills from "./components/skills";
 import Monitor from "./components/projects/3d/Monitor";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
+import Test3D from "./components/projects/3d/Test3D";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -21,7 +22,7 @@ function App() {
   //   1.3 + getTotalContentHeightInPx(isLargeScreen) / window.screen.height; // hero + the rest
 
   return (
-    <Canvas>
+    <Canvas style={{ width: "100vw", height: "100vh" }}>
       {/* <OrbitControls /> */}
       {/* <Lights /> */}
       <Environment preset="city" environmentIntensity={0.15} />

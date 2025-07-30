@@ -1,11 +1,12 @@
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { useRef } from "react";
-import * as THREE from "three";
 import { PAGES_HEIGHTS } from "../../../lib/constants";
 // import { useControls } from "leva";
 import MonitorLight from "./MonitorLight";
 import { useMediaQuery } from "@react-hook/media-query";
+import { useRef } from "react";
+import * as THREE from "three";
+import HtmlImage from "./HtmlImage";
 
 const Monitor = () => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -14,11 +15,9 @@ const Monitor = () => {
   const { scene: keyboardScene } = useGLTF("/models/keyboard/scene.gltf");
   const { scene: mouseScene } = useGLTF("/models/mouse/scene.gltf");
 
-  const texture = useTexture("/projects-img/autodac-dashboard.png");
-  texture.colorSpace = THREE.SRGBColorSpace;
+  const monitorRef = useRef<THREE.Group>(null);
 
   const { size, viewport } = useThree();
-  const groupRef = useRef<THREE.Group>(null);
 
   // const { scalar, position, positionFactor, scalarFactor } = useControls(
   //   "Monitor Settings",
@@ -31,8 +30,6 @@ const Monitor = () => {
   //   { collapsed: true },
   // );
 
-  console.log(viewport.width);
-
   const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.06 : 0;
   const grPositionY =
     (isLargeScreen ? -3.84 : -3.3) - 15 * (PAGES_HEIGHTS.SKILLS / size.height);
@@ -43,32 +40,25 @@ const Monitor = () => {
 
   return (
     <>
-      <group
-        ref={groupRef}
-        scale={grScale}
-        rotation-y={isLargeScreen ? -0.4 : 0}
-        position={[grPositionX, grPositionY, 0]}
-      >
-        <MonitorLight />
-        <primitive object={monitorScene}>
-          <mesh position={[0, 0.075, 0.032]}>
-            <planeGeometry args={[1, 0.565]} />
-            <meshBasicMaterial map={texture} toneMapped={false} />
-          </mesh>
-        </primitive>
+      <group scale={grScale} position={[grPositionX, grPositionY, 0]}>
+        <group rotation-y={isLargeScreen ? -0.38 : 0}>
+          <MonitorLight />
+          <primitive object={monitorScene} ref={monitorRef} />
+          <primitive
+            object={keyboardScene}
+            position={[-0.11, -0.48, 0.3]}
+            rotation={[0.4, -0.2, 0]}
+            scale={1.2}
+          />
+          <primitive
+            object={mouseScene}
+            position={[0.25, -0.48, 0.3]}
+            rotation={[0.4, 3.4, 0]}
+            scale={0.1}
+          />
+        </group>
 
-        <primitive
-          object={keyboardScene}
-          position={[-0.11, -0.48, 0.3]}
-          rotation={[0.4, -0.2, 0]}
-          scale={1.2}
-        />
-        <primitive
-          object={mouseScene}
-          position={[0.25, -0.48, 0.3]}
-          rotation={[0.4, 3.4, 0]}
-          scale={0.1}
-        />
+        <HtmlImage ref={monitorRef} isLg={isLargeScreen} />
       </group>
     </>
   );

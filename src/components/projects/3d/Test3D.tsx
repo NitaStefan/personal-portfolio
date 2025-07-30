@@ -2,9 +2,10 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 import { PAGES_HEIGHTS } from "../../../lib/constants";
+import { Html } from "@react-three/drei";
 
 const Test3D = () => {
-  const { size } = useThree();
+  const { size, gl } = useThree();
   const ref = useRef<THREE.Group>(null);
 
   useFrame(() => {
@@ -22,6 +23,32 @@ const Test3D = () => {
 
   return (
     <>
+      <mesh position={[0, -10, 0]}>
+        <boxGeometry />
+        <meshStandardMaterial color="orange" />
+        {/* <Html
+          portal={{ current: gl.domElement.parentNode }}
+          transform
+          style={{ position: "sticky" }}
+        >
+          <img
+            src="/projects-img/autodac-dashboard.png"
+            style={{ width: "150px" }}
+          />
+        </Html> */}
+        {/* <Html position={[0, 0, 0]} transform>
+          <div className="text-5xl font-bold">
+            <img
+              height="auto"
+              width={200}
+              src="/projects-img/autodac-dashboard.png"
+              alt="autodac"
+            />
+          </div>
+          <div>salut</div>
+        </Html> */}
+      </mesh>
+
       <mesh ref={ref}>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial color="hotpink" />

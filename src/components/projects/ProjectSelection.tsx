@@ -34,6 +34,11 @@ const ProjectSelection = ({
               )}
               <span className={cn(selected && "font-semibold")}>
                 {project.title}
+                {selected && project.title === "AutoDac" && (
+                  <span className="text-text-muted pl-3 text-xs font-normal sm:text-sm">
+                    Freelance Client Project
+                  </span>
+                )}
               </span>
             </div>
 

@@ -6,7 +6,6 @@ export type Project = {
   title: ProjectTitle;
   subtitle: string;
   techStack: { name: string; circle: boolean }[];
-  features: string[];
   images: ThreeOrFourImages;
   faviconPath?: string;
   link?: string;

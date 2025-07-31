@@ -29,7 +29,7 @@ function App() {
     <Canvas style={{ width: "100vw", height: "100vh" }}>
       {/* <OrbitControls /> */}
       {/* <Lights /> */}
-      <Environment preset="city" environmentIntensity={0.15} />
+      <Environment preset="city" environmentIntensity={0.14} />
 
       <ScrollControls pages={pages} damping={0.001}>
         <Scroll>

@@ -19,7 +19,7 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
 
   const { size, viewport } = useThree();
 
-  const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.06 : 0;
+  const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.1 : 0;
   const grPositionY =
     (isLargeScreen ? -3.84 : isSmallScreen ? -3.5 : -2.6) -
     15 * (PAGES_HEIGHTS.SKILLS / size.height);

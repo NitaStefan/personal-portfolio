@@ -11,7 +11,7 @@ const ProjectImages = ({
   activeImage: number;
   setImg: (no: number) => void;
 }) => {
-  const hasThreeImages = images.length === 3; // else 4
+  // const hasThreeImages = images.length === 3; // else 4
 
   useEffect(() => {
     setImg(0);
@@ -19,7 +19,7 @@ const ProjectImages = ({
 
   return (
     <>
-      <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-100">
+      <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-110">
         <ArrowWrapper
           handleClick={() => setImg(activeImage - 1)}
           disabled={activeImage === 0}
@@ -34,13 +34,11 @@ const ProjectImages = ({
             <button
               onClick={() => setImg(index)}
               className={cn(
-                "flex basis-0 flex-col items-center gap-1",
+                "flex flex-1 flex-col items-center gap-1",
                 "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
                 "transition-all duration-200 ease-out",
-                hasThreeImages ? "grow-2" : "grow",
                 isActive &&
-                  "grow-3 text-sm font-medium opacity-85 sm:text-base",
-                isActive && (hasThreeImages ? "px-3" : "px-2"),
+                  "grow-2 text-sm font-medium opacity-85 sm:text-base",
               )}
             >
               <span className="border-bg-select-border flex h-6 w-6 items-center justify-center rounded-full border font-normal">

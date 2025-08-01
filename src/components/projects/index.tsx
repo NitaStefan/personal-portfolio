@@ -1,9 +1,10 @@
-import { PAGES_HEIGHTS, projects } from "../../lib/constants";
+import { projects } from "../../lib/constants";
 import SectionHeading from "../SectionHeading";
 import ProjectHeading from "./ProjectHeading";
 import ProjectSelection from "./ProjectSelection";
 import ProjectImages from "./ProjectImages";
 import { useMediaQuery } from "@react-hook/media-query";
+import { getProjectsSectionHeight } from "../../lib/utils";
 
 const Projects = ({
   projectNo,
@@ -16,12 +17,11 @@ const Projects = ({
   projectNo: number;
 }) => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+  const isSmallScreen = useMediaQuery("(min-width: 640px)");
+
+  const sectionHeight = getProjectsSectionHeight(isLargeScreen, isSmallScreen);
 
   const currProject = projects[projectNo];
-
-  const sectionHeight = isLargeScreen
-    ? PAGES_HEIGHTS.PROJECTS.LG
-    : PAGES_HEIGHTS.PROJECTS.MAX_LG;
 
   return (
     <>
@@ -33,7 +33,7 @@ const Projects = ({
           link={currProject.link}
         />
 
-        <div className="mt-80 flex flex-col gap-8 sm:mt-110 sm:gap-14 lg:mt-32">
+        <div className="mt-80 flex flex-col gap-8 sm:mt-110 sm:gap-14 lg:mt-24">
           <ProjectSelection no={projectNo} handleSelect={handleSelect} />
 
           <ProjectImages images={currProject.images} {...rest} />

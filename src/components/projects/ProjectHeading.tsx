@@ -23,7 +23,7 @@ const ProjectHeading = ({
   );
 
   return (
-    <div className="pt-25 sm:pt-30">
+    <div className="pt-24 sm:pt-28">
       <div className="from-bg via-primary to-bg mb-2 h-0.5 bg-gradient-to-r" />
       {link ? (
         <a target="_blank" href={link}>

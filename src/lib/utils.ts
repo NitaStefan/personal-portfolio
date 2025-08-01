@@ -1,14 +1,26 @@
 import { PAGES_HEIGHTS } from "./constants";
 
-export const getTotalContentHeightInPx = (isLargeScreen: boolean) => {
+export const getTotalContentHeightInPx = (
+  isLargeScreen: boolean,
+  isSmallScreen: boolean,
+) => {
   const height =
     PAGES_HEIGHTS.SKILLS + // Skills
-    (isLargeScreen
-      ? PAGES_HEIGHTS.PROJECTS.LG
-      : PAGES_HEIGHTS.PROJECTS.MAX_LG) + // Projects
+    getProjectsSectionHeight(isLargeScreen, isSmallScreen) + // Projects
     PAGES_HEIGHTS.CERTIFICATES; // Certificates
 
   return height;
+};
+
+export const getProjectsSectionHeight = (
+  isLargeScreen: boolean,
+  isSmallScreen: boolean,
+) => {
+  return isLargeScreen
+    ? PAGES_HEIGHTS.PROJECTS.LG
+    : isSmallScreen
+      ? PAGES_HEIGHTS.PROJECTS.SM
+      : PAGES_HEIGHTS.PROJECTS.MAX_SM;
 };
 
 export const techLabel = (techTag: string): string => {

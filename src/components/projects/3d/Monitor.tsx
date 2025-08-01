@@ -21,7 +21,7 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
 
   const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.1 : 0;
   const grPositionY =
-    (isLargeScreen ? -3.84 : isSmallScreen ? -3.5 : -2.6) -
+    (isLargeScreen ? -3.5 : isSmallScreen ? -3.3 : -2.5) -
     15 * (PAGES_HEIGHTS.SKILLS / size.height);
 
   const scalarVal = isLargeScreen ? 5.1 : 2.8;

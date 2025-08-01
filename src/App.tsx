@@ -19,11 +19,15 @@ import { projectTags } from "./lib/constants";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+  const isSmallScreen = useMediaQuery("(min-width: 640px)");
+
   const [activeImage, setActiveImage] = useState(1);
   const [projectNo, setProjectNo] = useState(0);
 
   const pages =
-    1.5 + getTotalContentHeightInPx(isLargeScreen) / window.innerHeight; // hero + the rest
+    1.5 +
+    getTotalContentHeightInPx(isLargeScreen, isSmallScreen) /
+      window.innerHeight; // hero (1 page) + the rest
 
   return (
     <Canvas style={{ width: "100vw", height: "100vh" }}>

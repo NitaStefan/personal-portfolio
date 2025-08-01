@@ -81,6 +81,6 @@ export const projectTags = ["autodac", "peak-planner", "nurbs", "hospital"];
 // PAGES HEIGHTS
 export const PAGES_HEIGHTS = {
   SKILLS: 500,
-  PROJECTS: { MAX_LG: 1200, LG: 900 },
+  PROJECTS: { MAX_SM: 900, SM: 1100, LG: 820 },
   CERTIFICATES: 320,
 };

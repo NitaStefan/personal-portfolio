@@ -6,7 +6,7 @@
   --color-text: hsla(0, 0%, 100%, 0.9);
   --color-text-muted: hsla(0, 0%, 100%, 0.6);
   --color-bg-light: hsl(214 36% 18%);
-  --color-bg-light-radial: hsl(214 36% 23%);
+  --color-bg-light-accent: hsl(214 36% 23%);
   --color-bg: hsl(var(--bg));
   --color-bg-dark: #0d131c;
   --color-bg-select: hsl(214 36% 26%);
@@ -52,17 +52,11 @@
   }
 
   .bg-gradient-skills {
-    @apply from-bg-light-radial to-bg-light bg-radial-[at_0%_0%] to-80%;
+    @apply from-bg-light-accent to-bg-light bg-radial-[at_0%_0%] to-80%;
   }
 }
 
 /* FONTS */
-@font-face {
-  font-family: "Quicksand";
-  src: url("/fonts/Quicksand-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
 
 @font-face {
   font-family: "Quicksand";

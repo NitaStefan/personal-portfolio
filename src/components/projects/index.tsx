@@ -24,22 +24,20 @@ const Projects = ({
   const currProject = projects[projectNo];
 
   return (
-    <>
+    <section style={{ height: `${sectionHeight}px` }}>
       <SectionHeading text="Projects" />
-      <section style={{ height: `${sectionHeight}px` }}>
-        <ProjectHeading
-          title={currProject.title}
-          subtitle={currProject.subtitle}
-          link={currProject.link}
-        />
+      <ProjectHeading
+        title={currProject.title}
+        subtitle={currProject.subtitle}
+        link={currProject.link}
+      />
 
-        <div className="mt-80 flex flex-col gap-8 sm:mt-110 sm:gap-14 lg:mt-24">
-          <ProjectSelection no={projectNo} handleSelect={handleSelect} />
+      <div className="mt-80 flex flex-col gap-8 sm:mt-110 sm:gap-14 lg:mt-24">
+        <ProjectSelection no={projectNo} handleSelect={handleSelect} />
 
-          <ProjectImages images={currProject.images} {...rest} />
-        </div>
-      </section>
-    </>
+        <ProjectImages images={currProject.images} {...rest} />
+      </div>
+    </section>
   );
 };
 

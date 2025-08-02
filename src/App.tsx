@@ -1,6 +1,6 @@
 import {
   Environment,
-  OrbitControls,
+  // OrbitControls,
   Preload,
   Scroll,
   ScrollControls,
@@ -16,6 +16,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 // import Test3D from "./components/projects/3d/Test3D";
 import { Suspense, useState } from "react";
 import { projectTags } from "./lib/constants";
+import Footer from "./components/Footer";
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -61,6 +62,7 @@ function App() {
 
             <Certificates />
           </main>
+          <Footer />
         </Scroll>
       </ScrollControls>
     </Canvas>

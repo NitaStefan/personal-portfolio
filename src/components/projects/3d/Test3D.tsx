@@ -1,11 +1,11 @@
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
-import { PAGES_HEIGHTS } from "../../../lib/constants";
-import { Html } from "@react-three/drei";
+// import { PAGES_HEIGHTS } from "../../../lib/constants";
+// import { Html } from "@react-three/drei";
 
 const Test3D = () => {
-  const { size, gl } = useThree();
+  // const { size, gl } = useThree();
   const ref = useRef<THREE.Group>(null);
 
   useFrame(() => {

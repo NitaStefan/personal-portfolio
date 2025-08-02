@@ -15,7 +15,7 @@ const Certificates = () => {
 
   useFrame(() => {
     if (certifRef.current) {
-      const yPercent = scroll.offset * 100 - 65;
+      const yPercent = scroll.offset * 100 - (isLargeScreen ? 65 : 68);
 
       for (const child of certifRef.current.children) {
         (child as HTMLElement).style.perspectiveOrigin =

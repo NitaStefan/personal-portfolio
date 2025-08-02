@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { useHelper } from "@react-three/drei";
+// import { useHelper } from "@react-three/drei";
 
 const MonitorLight = () => {
   const dirLight = useRef<THREE.DirectionalLight>(null);

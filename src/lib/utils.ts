@@ -7,7 +7,8 @@ export const getTotalContentHeightInPx = (
   const height =
     getSkillsSectionHeight(isLargeScreen) + // Skills
     getProjectsSectionHeight(isLargeScreen, isSmallScreen) + // Projects
-    getCertificatesSectionHeight(isLargeScreen); // Certificates
+    getCertificatesSectionHeight(isLargeScreen) + // Certificates
+    PAGES_HEIGHTS.FOOTER; // Footer
 
   return height;
 };

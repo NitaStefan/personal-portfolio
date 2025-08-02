@@ -1,11 +1,11 @@
 import { useGLTF } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { PAGES_HEIGHTS } from "../../../lib/constants";
 import MonitorLight from "./MonitorLight";
 import { useMediaQuery } from "@react-hook/media-query";
 import { useRef } from "react";
 import * as THREE from "three";
 import HtmlImage from "./HtmlImage";
+import { getSkillsSectionHeight } from "../../../lib/utils";
 
 const Monitor = ({ imgUrl }: { imgUrl: string }) => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -21,8 +21,9 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
 
   const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.1 : 0;
   const grPositionY =
-    (isLargeScreen ? -3.5 : isSmallScreen ? -3.3 : -2.5) -
-    15 * (PAGES_HEIGHTS.SKILLS / size.height);
+    -3.84 -
+    (isLargeScreen ? 14.5 : isSmallScreen ? 11.5 : 10.8) *
+      (getSkillsSectionHeight(isLargeScreen) / size.height);
 
   const scalarVal = isLargeScreen ? 5.1 : 2.8;
   const maxLg = isLargeScreen ? 0 : viewport.width * 0.4;

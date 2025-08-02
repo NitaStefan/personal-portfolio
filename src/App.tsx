@@ -13,7 +13,7 @@ import Skills from "./components/skills";
 import Monitor from "./components/projects/3d/Monitor";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
-import Test3D from "./components/projects/3d/Test3D";
+// import Test3D from "./components/projects/3d/Test3D";
 import { Suspense, useState } from "react";
 import { projectTags } from "./lib/constants";
 
@@ -25,7 +25,7 @@ function App() {
   const [projectNo, setProjectNo] = useState(0);
 
   const pages =
-    1.5 +
+    1 +
     getTotalContentHeightInPx(isLargeScreen, isSmallScreen) /
       window.innerHeight; // hero (1 page) + the rest
 
@@ -60,14 +60,6 @@ function App() {
             />
 
             <Certificates />
-
-            {/* TEST */}
-            <div className="identify h-25">
-              innerHeight: {window.innerHeight} | visualViewport:{" "}
-              {window.visualViewport?.height} | totalPixels:{" "}
-              {getTotalContentHeightInPx(isLargeScreen)} | window.screen.height:{" "}
-              {window.screen.height}
-            </div>
           </main>
         </Scroll>
       </ScrollControls>

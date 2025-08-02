@@ -1,25 +1,26 @@
-import { PAGES_HEIGHTS } from "../../lib/constants";
 import SectionHeading from "../SectionHeading";
+import Backend from "./Backend";
+import Frontend from "./Frontend";
+import Tools from "./Tools";
+import Principles from "./Principles";
+import { useMediaQuery } from "@react-hook/media-query";
+import { getSkillsSectionHeight } from "../../lib/utils";
 
 const Skills = () => {
+  const isLargeScreen = useMediaQuery("(min-width: 1024px)");
+
   return (
-    <section style={{ height: PAGES_HEIGHTS.SKILLS }} className="h-100">
+    <section style={{ height: getSkillsSectionHeight(isLargeScreen) }}>
       <SectionHeading text="Skills" />
-      <div className="grid h-60 grid-cols-1 gap-3 pt-30 lg:grid-cols-3">
-        <div className="bg-bg-light border-border bg-gradient-skills rounded-2xl border p-6">
-          <img src={`/logo/nextjs.svg`} alt="nextjs" width={52} height={52} />
-        </div>
-        <div className="bg-bg-light border-border bg-gradient-skills rounded-2xl border p-6">
-          <img src={`/logo/nextjs.svg`} alt="nextjs" width={52} height={52} />
-        </div>
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
-          <div className="bg-bg-light border-border bg-gradient-skills rounded-2xl border p-6">
-            <img src={`/logo/nextjs.svg`} alt="nextjs" width={52} height={52} />
-          </div>
-          <div className="bg-bg-light border-border bg-gradient-skills rounded-2xl border p-6">
-            <img src={`/logo/nextjs.svg`} alt="nextjs" width={52} height={52} />
-          </div>
-        </div>
+
+      <div className="grid grid-cols-[2fr_2fr_2fr] gap-3 pt-30 lg:grid-cols-[2fr_2fr_1.2fr]">
+        <Frontend />
+
+        <Backend />
+
+        <Principles />
+
+        <Tools />
       </div>
     </section>
   );

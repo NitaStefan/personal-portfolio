@@ -6,7 +6,7 @@
   --color-text: hsla(0, 0%, 100%, 0.9);
   --color-text-muted: hsla(0, 0%, 100%, 0.6);
   --color-bg-light: hsl(214 36% 18%);
-  --color-bg-light-accent: hsl(214 36% 23%);
+  --color-bg-light-accent: hsl(214 36% 24%);
   --color-bg: hsl(var(--bg));
   --color-bg-dark: #0d131c;
   --color-bg-select: hsl(214 36% 26%);

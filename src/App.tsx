@@ -22,6 +22,7 @@ function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const isSmallScreen = useMediaQuery("(min-width: 640px)");
 
+  //TODO: identify why images are loaded each time they are switched (ask Codex)
   const [activeImage, setActiveImage] = useState(1);
   const [projectNo, setProjectNo] = useState(0);
 
@@ -31,7 +32,7 @@ function App() {
       window.innerHeight; // hero (1 page) + the rest
 
   return (
-    <Canvas style={{ width: "100vw", height: "100vh" }}>
+    <Canvas>
       {/* <OrbitControls /> */}
       {/* <Lights /> */}
       <Environment preset="city" environmentIntensity={0.14} />
@@ -48,7 +49,7 @@ function App() {
         </Scroll>
 
         <Scroll html style={{ width: "100%" }}>
-          <main className="mx-auto max-w-5xl px-5 sm:px-12">
+          <main className="mx-auto max-w-[1008.8px] px-5 sm:px-12">
             <Hero />
 
             <Skills />

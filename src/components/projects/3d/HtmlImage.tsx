@@ -1,5 +1,6 @@
 import { Html } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
+import { cn } from "@sglara/cn";
 import { useRef, type RefObject } from "react";
 import * as THREE from "three";
 
@@ -35,9 +36,15 @@ const HtmlImage = ({
       portal={{ current: gl.domElement.parentNode as HTMLElement }}
       pointerEvents="none"
       position={[0, 0.075, 0.03]}
+      distanceFactor={2}
+      scale={0.5}
     >
-      <div ref={divRef} className="perspective-[60px]">
-        <img src={imgUrl} width={40} className={isLg ? "-rotate-y-22" : ""} />
+      <div ref={divRef} className="perspective-[610px]">
+        <div
+          className={cn("flex h-57 w-100 items-center", isLg && "-rotate-y-22")}
+        >
+          <img src={imgUrl} width={400} />
+        </div>
       </div>
     </Html>
   );

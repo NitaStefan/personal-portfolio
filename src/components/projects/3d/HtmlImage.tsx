@@ -25,21 +25,40 @@ const HtmlImage = ({
 
       if (divRef.current && vector.y !== prevY) {
         prevY = vector.y;
-        divRef.current.style.perspectiveOrigin = `5% ${65 + prevY * (45 + size.height * 0.006)}%`;
+        divRef.current.style.perspectiveOrigin = `5% ${65 + prevY * (45 + size.height * 0.014)}%`;
       }
     }
   });
+
+  //   import { useEffect } from "react";
+
+  // function Preloader({ urls }: { urls: string[] }) {
+  //   useEffect(() => {
+  //     urls.forEach((url) => {
+  //       const img = new Image();
+  //       img.src = url;
+  //     });
+  //   }, [urls]);
+
+  //   return null; // nothing visible
+  // }
+
+  // // usage
+  // <Preloader urls={[
+  //   "/projects-img/project1-1.png",
+  //   "/projects-img/project1-2.png",
+  //   "/projects-img/project1-3.png",
+  // ]} />
 
   return (
     <Html
       transform
       portal={{ current: gl.domElement.parentNode as HTMLElement }}
       pointerEvents="none"
-      position={[0, 0.075, 0.03]}
-      distanceFactor={2}
-      scale={0.5}
+      position={[isLg ? -0.018 : 0, 0.075, 0.03]}
+      distanceFactor={1}
     >
-      <div ref={divRef} className="perspective-[610px]">
+      <div ref={divRef} className="perspective-[650px]">
         <div
           className={cn("flex h-57 w-100 items-center", isLg && "-rotate-y-22")}
         >

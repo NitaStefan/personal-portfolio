@@ -1,38 +1,33 @@
 import { cn } from "@sglara/cn";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
-import { useEffect } from "react";
 
 const ProjectImages = ({
+  projectImage,
   images,
-  activeImage,
-  setImg,
+  selectImg,
 }: {
+  projectImage: { project: number; image: number };
   images: string[];
-  activeImage: number;
-  setImg: (no: number) => void;
+  selectImg: (no: number) => void;
 }) => {
   // const hasThreeImages = images.length === 3; // else 4
-
-  useEffect(() => {
-    setImg(0);
-  }, [images]);
 
   return (
     <>
       <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-110">
         <ArrowWrapper
-          handleClick={() => setImg(activeImage - 1)}
-          disabled={activeImage === 0}
+          handleClick={() => selectImg(projectImage.image - 1)}
+          disabled={projectImage.image === 0}
           direction="left"
           hide
         />
 
         {images.map((imageDesc, index) => {
-          const isActive = activeImage === index;
+          const isActive = projectImage.image === index;
 
           return (
             <button
-              onClick={() => setImg(index)}
+              onClick={() => selectImg(index)}
               className={cn(
                 "flex flex-1 flex-col items-center gap-1",
                 "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
@@ -51,13 +46,13 @@ const ProjectImages = ({
 
         <div className="flex flex-col gap-1">
           <ArrowWrapper
-            handleClick={() => setImg(activeImage + 1)}
-            disabled={activeImage === images.length - 1}
+            handleClick={() => selectImg(projectImage.image + 1)}
+            disabled={projectImage.image === images.length - 1}
             direction="right"
           />
           <ArrowWrapper
-            handleClick={() => setImg(activeImage - 1)}
-            disabled={activeImage === 0}
+            handleClick={() => selectImg(projectImage.image - 1)}
+            disabled={projectImage.image === 0}
             direction="left"
           />
         </div>

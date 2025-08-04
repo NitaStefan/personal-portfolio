@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@isaac_ua/drei-html-fix':
+        specifier: ^1.0.2
+        version: 1.0.2(@react-three/fiber@9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@react-hook/media-query':
         specifier: ^1.1.1
         version: 1.1.1(react@19.1.0)
@@ -406,6 +409,13 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
+
+  '@isaac_ua/drei-html-fix@1.0.2':
+    resolution: {integrity: sha512-WC/h5j1hVHwfF3HqpbXfL2b6ii9bihQNdAK/9rDzRepIYOfHvSpsjTWokuWtn5rTT5/GlcR4252mAnmeBCEV/w==}
+    peerDependencies:
+      '@react-three/fiber': ^8.0.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   '@isaacs/fs-minipass@4.0.1':
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
@@ -2224,6 +2234,12 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
+
+  '@isaac_ua/drei-html-fix@1.0.2(@react-three/fiber@9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@react-three/fiber': 9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:

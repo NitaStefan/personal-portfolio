@@ -53,21 +53,10 @@ const Certificates = () => {
     },
   ];
 
-  // TEST SCROLL
-  // const [progress, setProgress] = useState(0);
-
-  // // Track scroll inside the render loop
-  // useFrame(() => {
-  //   // normalized value between 0 and 1
-  //   const offset = scroll.offset;
-  //   setProgress(Math.round(offset * 100));
-  // });
-
   return (
     <>
       <section style={{ height: getCertificatesSectionHeight(isLargeScreen) }}>
         <SectionHeading text="Certificates" />
-        {/* <p className="pt-20 text-5xl">{progress}</p> */}
 
         <div
           ref={certifRef}

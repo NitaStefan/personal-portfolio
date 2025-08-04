@@ -5,7 +5,10 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { useRef } from "react";
 import * as THREE from "three";
 import HtmlImage from "./HtmlImage";
-import { getSkillsSectionHeight } from "../../../lib/utils";
+import {
+  getProjectsSectionHeight,
+  getSkillsSectionHeight,
+} from "../../../lib/utils";
 
 const Monitor = ({ imgUrl }: { imgUrl: string }) => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -19,15 +22,14 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
 
   const { size, viewport } = useThree();
 
-  const grPositionX = isLargeScreen ? 0.8 + viewport.width * 0.1 : 0;
+  const grPositionX = isLargeScreen ? 1 + viewport.width * 0.062 : 0;
   const grPositionY =
-    -3.84 -
-    (isLargeScreen ? 14.5 : isSmallScreen ? 11.5 : 10.8) *
-      (getSkillsSectionHeight(isLargeScreen) / size.height);
+    -2.88 -
+    5.77 * (getSkillsSectionHeight(isLargeScreen) / size.height) -
+    (isLargeScreen ? 3.2 : isSmallScreen ? 2.22 : 2.4) *
+      (getProjectsSectionHeight(isLargeScreen, isSmallScreen) / size.height);
 
-  const scalarVal = isLargeScreen ? 5.1 : 2.8;
-  const maxLg = isLargeScreen ? 0 : viewport.width * 0.4;
-  const grScale = scalarVal - size.height * 0.15 * 0.01 + maxLg;
+  const grScale = (isSmallScreen ? 4.3 : 3.8) - size.height * 0.16 * 0.01;
 
   return (
     <>
@@ -49,7 +51,9 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
           />
         </group>
 
+        {/* {isLargeScreen && ( */}
         <HtmlImage ref={monitorRef} isLg={isLargeScreen} imgUrl={imgUrl} />
+        {/* )} */}
       </group>
     </>
   );

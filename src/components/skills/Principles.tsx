@@ -5,7 +5,7 @@ const Principles = () => {
         <h2 className="pb-1 text-sm font-semibold lg:text-base">
           Engineering Essentials
         </h2>
-        <div className="flex grow flex-col justify-between gap-1 lg:font-medium">
+        <div className="xs:text-sm flex grow flex-col justify-between gap-1 text-xs lg:font-medium">
           <p className="border-border rounded-sm border p-1 text-center">
             Object-Oriented Programming
           </p>

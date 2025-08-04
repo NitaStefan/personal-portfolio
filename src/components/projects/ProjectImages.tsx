@@ -1,22 +1,22 @@
 import { cn } from "@sglara/cn";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import { useContext } from "react";
+import { ProjectContext } from "../../App";
 
-const ProjectImages = ({
-  projectImage,
-  images,
-  selectImg,
-}: {
-  projectImage: { project: number; image: number };
-  images: string[];
-  selectImg: (no: number) => void;
-}) => {
+const ProjectImages = ({ images }: { images: string[] }) => {
+  const context = useContext(ProjectContext);
+  if (!context) {
+    throw new Error("must be used within a ProjectContext");
+  }
+  const { projectImage, selectImage } = context;
+
   // const hasThreeImages = images.length === 3; // else 4
 
   return (
     <>
       <div className="order-1 flex h-30 gap-1 sm:h-28 sm:gap-2 lg:order-2 lg:h-35 lg:w-110">
         <ArrowWrapper
-          handleClick={() => selectImg(projectImage.image - 1)}
+          handleClick={() => selectImage(projectImage.image - 1)}
           disabled={projectImage.image === 0}
           direction="left"
           hide
@@ -27,7 +27,7 @@ const ProjectImages = ({
 
           return (
             <button
-              onClick={() => selectImg(index)}
+              onClick={() => selectImage(index)}
               className={cn(
                 "flex flex-1 flex-col items-center gap-1",
                 "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
@@ -46,12 +46,12 @@ const ProjectImages = ({
 
         <div className="flex flex-col gap-1">
           <ArrowWrapper
-            handleClick={() => selectImg(projectImage.image + 1)}
+            handleClick={() => selectImage(projectImage.image + 1)}
             disabled={projectImage.image === images.length - 1}
             direction="right"
           />
           <ArrowWrapper
-            handleClick={() => selectImg(projectImage.image - 1)}
+            handleClick={() => selectImage(projectImage.image - 1)}
             disabled={projectImage.image === 0}
             direction="left"
           />

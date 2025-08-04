@@ -14,10 +14,19 @@ import Monitor from "./components/projects/3d/Monitor";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
 // import Test3D from "./components/projects/3d/Test3D";
-import { Suspense, useState } from "react";
-import { projectTags } from "./lib/constants";
+import { createContext, Suspense, useState } from "react";
 import Footer from "./components/Footer";
 import { CanvasWrapper } from "@isaac_ua/drei-html-fix";
+import { projectTags } from "./lib/constants";
+
+interface ProjectContextType {
+  projectImage: { project: number; image: number };
+  selectProject: (index: number) => void;
+  selectImage: (index: number) => void;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const ProjectContext = createContext<ProjectContextType | null>(null);
 
 function App() {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
@@ -30,8 +39,9 @@ function App() {
     getTotalContentHeightInPx(isLargeScreen, isSmallScreen) /
       window.innerHeight; // hero (1 page) + the rest
 
+  console.log("APP tsx");
+
   return (
-    // <Canvas>
     <CanvasWrapper
       canvasProps={{
         // Use <Canvas> props inside canvasProps
@@ -43,7 +53,6 @@ function App() {
       {/* <OrbitControls /> */}
       {/* <Lights /> */}
       <Environment preset="city" environmentIntensity={0.14} />
-
       <ScrollControls pages={pages} damping={0.001}>
         <Scroll>
           {/* <Test3D /> */}
@@ -57,27 +66,29 @@ function App() {
 
         <Scroll html style={{ width: "100%" }}>
           <main className="mx-auto max-w-[1008.8px] px-5 sm:px-12">
-            <Hero />
+            <ProjectContext.Provider
+              value={{
+                projectImage,
+                selectProject: (index) =>
+                  setProjectImage({ image: 0, project: index }),
+                selectImage: (index) =>
+                  setProjectImage((prev) => ({ ...prev, image: index })),
+              }}
+            >
+              <Hero />
 
-            <Skills />
+              <Skills />
 
-            <Projects
-              projectImage={projectImage}
-              handleSelect={(index) =>
-                setProjectImage({ image: 0, project: index })
-              }
-              selectImg={(index) =>
-                setProjectImage((prev) => ({ ...prev, image: index }))
-              }
-            />
+              <Projects />
 
-            <Certificates />
+              <Certificates />
+            </ProjectContext.Provider>
           </main>
+
           <Footer />
         </Scroll>
       </ScrollControls>
     </CanvasWrapper>
-    // </Canvas>
   );
 }
 

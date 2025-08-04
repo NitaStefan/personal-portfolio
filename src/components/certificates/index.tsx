@@ -15,11 +15,10 @@ const Certificates = () => {
 
   useFrame(() => {
     if (certifRef.current) {
-      const yPercent = scroll.offset * 100 - (isLargeScreen ? 65 : 68);
+      const yPercent = scroll.offset * 100 - 60;
 
       for (const child of certifRef.current.children) {
-        (child as HTMLElement).style.perspectiveOrigin =
-          `50% ${yPercent * (isLargeScreen ? 2.8 : 4)}%`;
+        (child as HTMLElement).style.perspectiveOrigin = `50% ${yPercent * 4}%`;
       }
     }
   });

@@ -8,7 +8,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 
 const Test3D = () => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
-  const { size, gl } = useThree();
+  const { size } = useThree();
   const ref = useRef<THREE.Group>(null);
 
   useFrame(() => {

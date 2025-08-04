@@ -26,7 +26,7 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
   const grPositionY =
     -2.88 -
     5.77 * (getSkillsSectionHeight(isLargeScreen) / size.height) -
-    (isLargeScreen ? 3.2 : isSmallScreen ? 2.22 : 2.4) *
+    (isLargeScreen ? 3.2 : isSmallScreen ? 2.22 : 2.6) *
       (getProjectsSectionHeight(isLargeScreen, isSmallScreen) / size.height);
 
   const grScale = (isSmallScreen ? 4.3 : 3.8) - size.height * 0.16 * 0.01;

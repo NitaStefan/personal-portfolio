@@ -36,7 +36,6 @@ const CertificatePage = ({
             className="absolute top-1/2 right-[2%] w-full -translate-y-1/2"
             src="/certificates/leaves.svg"
             alt="certificate-leaves"
-            loading="lazy"
           />
           <img
             className="absolute left-1/2 -translate-x-1/2 -translate-y-[34%]"
@@ -44,7 +43,6 @@ const CertificatePage = ({
             alt="certificate-badge"
             width={isSmScreen ? badgeSize : badgeSize - 4}
             height="auto"
-            loading="lazy"
           />
           <img
             className="absolute top-1/2 left-[48%] -translate-x-1/2 -translate-y-1/2"
@@ -52,7 +50,6 @@ const CertificatePage = ({
             alt="certificate-issuer"
             width={isSmScreen ? issuerSize : issuerSize - size * 7}
             height="auto"
-            loading="lazy"
           />
         </>
       )}
@@ -65,7 +62,6 @@ const CertificatePage = ({
           alt="certificate-aws"
           width={isSmScreen ? 72 : 48}
           height="auto"
-          loading="lazy"
         />
       ) : (
         <p
@@ -86,7 +82,6 @@ const CertificatePage = ({
         alt="certificate-corner"
         width={cornerSize}
         height="auto"
-        loading="lazy"
       />
       <img
         className="absolute right-[1.6%] bottom-[1.6%] rotate-90"
@@ -94,7 +89,6 @@ const CertificatePage = ({
         alt="certificate-corner"
         width={cornerSize}
         height="auto"
-        loading="lazy"
       />
       <img
         className="absolute top-[1.6%] left-[1.6%] -rotate-90"
@@ -102,7 +96,6 @@ const CertificatePage = ({
         alt="certificate-corner"
         width={cornerSize}
         height="auto"
-        loading="lazy"
       />
       <img
         className="absolute bottom-[1.6%] left-[1.6%] rotate-180"
@@ -110,7 +103,6 @@ const CertificatePage = ({
         alt="certificate-corner"
         width={cornerSize}
         height="auto"
-        loading="lazy"
       />
     </div>
   );

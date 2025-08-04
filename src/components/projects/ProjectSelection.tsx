@@ -1,22 +1,25 @@
 import { cn } from "@sglara/cn";
 import { projects } from "../../lib/constants";
 import { techLabel } from "../../lib/utils";
+import { useContext } from "react";
+import { ProjectContext } from "../../App";
 
-const ProjectSelection = ({
-  no,
-  handleSelect,
-}: {
-  no: number;
-  handleSelect: (index: number) => void;
-}) => {
+const ProjectSelection = () => {
+  const context = useContext(ProjectContext);
+  if (!context) {
+    throw new Error("must be used within a ProjectContext");
+  }
+
+  const { projectImage, selectProject } = context;
+
   return (
     <div className="bg-bg-light border-border order-2 flex flex-col gap-1 rounded-2xl border p-2 text-sm font-medium sm:gap-2 sm:text-base lg:w-110">
       {projects.map((project, index) => {
-        const selected = index === no;
+        const selected = index === projectImage.project;
 
         return (
           <button
-            onClick={() => handleSelect(index)}
+            onClick={() => selectProject(index)}
             className={cn(
               "relative flex h-8 w-full items-start rounded-lg px-2 py-1 transition-[height,padding] duration-600 ease-out",
               selected &&

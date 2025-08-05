@@ -10,7 +10,14 @@ import {
   getSkillsSectionHeight,
 } from "../../../lib/utils";
 
-const Monitor = ({ imgUrl }: { imgUrl: string }) => {
+const Monitor = ({
+  projectImage,
+}: {
+  projectImage: {
+    project: number;
+    image: number;
+  };
+}) => {
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const isSmallScreen = useMediaQuery("(min-width: 640px)");
 
@@ -52,7 +59,11 @@ const Monitor = ({ imgUrl }: { imgUrl: string }) => {
         </group>
 
         {/* {isLargeScreen && ( */}
-        <HtmlImage ref={monitorRef} isLg={isLargeScreen} imgUrl={imgUrl} />
+        <HtmlImage
+          ref={monitorRef}
+          isLg={isLargeScreen}
+          projectImage={projectImage}
+        />
         {/* )} */}
       </group>
     </>

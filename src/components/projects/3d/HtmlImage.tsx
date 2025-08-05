@@ -3,13 +3,17 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { cn } from "@sglara/cn";
 import { useRef, type RefObject } from "react";
 import * as THREE from "three";
+import { projects, projectTags } from "../../../lib/constants";
 
 const HtmlImage = ({
-  imgUrl,
+  projectImage,
   ref,
   isLg,
 }: {
-  imgUrl: string;
+  projectImage: {
+    project: number;
+    image: number;
+  };
   ref: RefObject<THREE.Group<THREE.Object3DEventMap> | null>;
   isLg: boolean;
 }) => {
@@ -29,6 +33,8 @@ const HtmlImage = ({
       }
     }
   });
+
+  const noOfImages = projects.map((project) => project.images.length);
 
   //   import { useEffect } from "react";
 
@@ -62,7 +68,18 @@ const HtmlImage = ({
         <div
           className={cn("flex h-57 w-100 items-center", isLg && "-rotate-y-22")}
         >
-          <img src={imgUrl} width={400} />
+          {Array.from(
+            { length: noOfImages[projectImage.project] },
+            (_, i) => i,
+          ).map((imgNo) => (
+            <img
+              src={`/projects-img/${projectTags[projectImage.project]}-${imgNo + 1}.png`}
+              alt={`${projectTags[projectImage.project]}-${imgNo + 1}`}
+              className={projectImage.image !== imgNo ? "hidden" : ""}
+              width={400}
+              height="auto"
+            />
+          ))}
         </div>
       </div>
     </Html>

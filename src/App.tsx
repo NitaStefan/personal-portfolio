@@ -17,7 +17,6 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { createContext, Suspense, useState } from "react";
 import Footer from "./components/Footer";
 import { CanvasWrapper } from "@isaac_ua/drei-html-fix";
-import { projectTags } from "./lib/constants";
 
 interface ProjectContextType {
   projectImage: { project: number; image: number };
@@ -39,8 +38,6 @@ function App() {
     getTotalContentHeightInPx(isLargeScreen, isSmallScreen) /
       window.innerHeight; // hero (1 page) + the rest
 
-  console.log("APP tsx");
-
   return (
     <CanvasWrapper
       canvasProps={{
@@ -57,9 +54,7 @@ function App() {
         <Scroll>
           {/* <Test3D /> */}
           <Suspense fallback={null}>
-            <Monitor
-              imgUrl={`/projects-img/${projectTags[projectImage.project]}-${projectImage.image + 1}.png`}
-            />
+            <Monitor projectImage={projectImage} />
             <Preload all />
           </Suspense>
         </Scroll>

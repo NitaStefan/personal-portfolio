@@ -33,7 +33,7 @@ const ProjectHeading = ({
         TitleComp
       )}
 
-      <p className="text-text-muted text-center font-sans text-sm italic sm:text-base">
+      <p className="text-text-muted text-center text-sm italic sm:text-base">
         {subtitle}
       </p>
       <div className="from-bg via-primary to-bg mt-2 h-0.5 bg-gradient-to-r" />

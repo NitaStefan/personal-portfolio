@@ -13,7 +13,7 @@ export const projects: Project[] = [
       { name: "facebook", circle: true },
     ],
     images: [
-      "Clean Layout",
+      "Clean Figma-Based Layout",
       "Direct Customer Engagement",
       "Facebook Page Auto-Post",
     ],
@@ -77,6 +77,23 @@ export const projects: Project[] = [
 ];
 
 export const projectTags = ["autodac", "peak-planner", "nurbs", "hospital"];
+
+export const education = {
+  master: {
+    university: "University of Bucharest",
+    degree: "MSc in Computer Science",
+    programme: "Distributed Systems",
+    graduationDate: "July 2027",
+    location: "Bucharest, Romania",
+  },
+  bachelor: {
+    university: "Babeș-Bolyai University",
+    degree: "BSc in Mathematics",
+    programme: "Mathematics Computer Science",
+    graduationDate: "July 2024",
+    location: "Cluj-Napoca, Romania",
+  },
+};
 
 // PAGES HEIGHTS
 export const PAGES_HEIGHTS = {

@@ -34,16 +34,9 @@ const Projects = () => {
         />
 
         <div className="flex flex-col gap-8 pt-80 sm:gap-14 sm:pt-110 lg:pt-24">
-          <ProjectSelection
-          // no={projectImage.project}
-          // handleSelect={handleSelect}
-          />
+          <ProjectSelection />
 
-          <ProjectImages
-            // projectImage={projectImage}
-            images={currProject.images}
-            // selectImg={selectImg}
-          />
+          <ProjectImages images={currProject.images} />
         </div>
       </section>
     </>

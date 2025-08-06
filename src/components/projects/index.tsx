@@ -14,7 +14,7 @@ const Projects = () => {
 
   const context = useContext(ProjectContext);
   if (!context) {
-    throw new Error("must be used within a ProjectContext");
+    throw new Error("context must be used within a ProjectContext");
   }
 
   const { projectImage } = context;

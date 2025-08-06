@@ -46,7 +46,7 @@ const CertificatePage = ({
           />
           <img
             className="absolute top-1/2 left-[48%] -translate-x-1/2 -translate-y-1/2"
-            src={`/logo/${issuer}.svg`}
+            src={`/logo/${issuer}${issuer === "aws" ? ".png" : ".svg"}`}
             alt="certificate-issuer"
             width={isSmScreen ? issuerSize : issuerSize - size * 7}
             height="auto"
@@ -58,7 +58,7 @@ const CertificatePage = ({
       {!left && text && text === "AWS" ? (
         <img
           className="absolute top-1/2 left-[52%] -translate-x-1/2 -translate-y-1/2"
-          src="/certificates/ccp-badge.svg"
+          src="/certificates/ccp-badge.png"
           alt="certificate-aws"
           width={isSmScreen ? 72 : 48}
           height="auto"

@@ -21,9 +21,8 @@ const ProjectSelection = () => {
           <button
             onClick={() => selectProject(index)}
             className={cn(
-              "relative flex h-8 w-full items-start rounded-lg px-2 py-1 transition-[height,padding] duration-600 ease-out",
-              selected &&
-                "bg-bg-select border-bg-select-border h-26 border py-3.5",
+              "hover:border-bg-select-border hover:bg-bg-select group relative flex h-9 w-full items-start rounded-lg border border-transparent px-2 py-1.5 transition-[height,padding] duration-600 ease-out",
+              selected && "bg-bg-select border-bg-select-border h-26 py-3",
             )}
           >
             <div className="flex items-center gap-2">
@@ -53,7 +52,7 @@ const ProjectSelection = () => {
               }}
               className={cn(
                 "absolute flex transition-[top,left] duration-500",
-                selected ? "top-12" : "top-0",
+                selected ? "top-12" : "top-0.5",
               )}
             >
               {project.techStack.map((tech, index) => {
@@ -67,7 +66,7 @@ const ProjectSelection = () => {
                     height={30}
                     style={{ zIndex: z }}
                     className={cn(
-                      "-ml-2.5 border-4 transition-[margin] duration-600",
+                      "group-hover:bg-bg-select group-hover:border-bg-select -ml-2.5 rounded-md border-4 transition-[margin] duration-600",
                       selected
                         ? "border-bg-select/0 bg-bg-select/0 xs:ml-3 ml-2 first:ml-1 sm:ml-6"
                         : "border-bg-light bg-bg-light",

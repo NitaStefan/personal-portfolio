@@ -57,7 +57,7 @@ export const projects: Project[] = [
       "Dynamic Surface Adjustments",
       "Common Surface Types as NURBS",
     ],
-    faviconPath: "/projects-ico/nurbs.svg",
+    faviconPath: "/projects-ico/nurbs.png",
     link: "https://nitastefan.github.io/NURBS-Visualizer/",
   },
   {

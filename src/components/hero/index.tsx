@@ -26,7 +26,7 @@ const Hero = () => {
           target="_blank"
         >
           <img src={`/logo/github.svg`} alt="github" width={28} height={28} />
-          <p>Github</p>
+          <p>GitHub</p>
         </a>
 
         <a
@@ -45,7 +45,7 @@ const Hero = () => {
 
         <a
           className="hover:text-text flex w-12 flex-col items-center gap-1 hover:font-medium"
-          href="https://github.com/NitaStefan"
+          href="/Ștefan-Niță-Resume-2025.pdf"
           target="_blank"
         >
           <img src={`/logo/resume.svg`} alt="resume" width={28} height={28} />

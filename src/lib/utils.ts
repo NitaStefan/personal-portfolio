@@ -37,7 +37,7 @@ export const getSkillsSectionHeight = (isLargeScreen: boolean) => {
 export const techLabel = (techTag: string): string => {
   const map: Record<string, string> = {
     nextjs: "Next.js",
-    reactjs: "React.js",
+    reactjs: "React",
     "react-hook-form": "React Hook\nForm",
     threejs: "Three.js",
     "material-ui": "Material UI",

@@ -25,7 +25,7 @@ const Frontend = () => {
               height={46}
             />
           </TechLogo>
-          <TechLogo name={"React.js\n(Next.js)"}>
+          <TechLogo name={"React\n(Next.js)"}>
             <img
               src={`/logo/reactjs.svg`}
               className="reactjs"

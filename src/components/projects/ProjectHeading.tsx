@@ -14,7 +14,7 @@ const ProjectHeading = ({
     <h2
       className={cn(
         "text-primary flex items-center justify-center gap-2 text-center text-xl font-bold",
-        link && "cursor-pointer",
+        link && "cursor-pointer hover:underline",
       )}
     >
       {title}

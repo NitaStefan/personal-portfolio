@@ -31,7 +31,7 @@ const ProjectImages = ({ images }: { images: string[] }) => {
               className={cn(
                 "flex flex-1 flex-col items-center gap-1",
                 "bg-bg-select border-bg-select-border rounded-2xl border px-1 py-3 text-[11px] text-white opacity-40",
-                "transition-all duration-200 ease-out",
+                "transition-all duration-200 ease-out hover:font-medium hover:opacity-70",
                 isActive &&
                   "grow-2 text-sm font-medium opacity-85 sm:text-base",
               )}

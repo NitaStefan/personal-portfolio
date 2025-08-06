@@ -10,7 +10,7 @@ const Tools = () => {
         </TechLogo>
         <TechLogo name="AWS" sm>
           <img
-            src="/logo/aws.svg"
+            src="/logo/aws.png"
             alt="amazon-web-services"
             width={40}
             height={40}

@@ -2,11 +2,9 @@ import TechLogo from "./TechLogo";
 
 const Tools = () => {
   return (
-    <div className="bg-bg-light border-border bg-gradient-skills flex flex-col items-start gap-5 rounded-2xl border p-3 lg:col-span-2 lg:flex-row lg:items-center">
-      <h2 className="text-sm font-semibold lg:w-20 lg:text-base">
-        Developer Tools
-      </h2>
-      <div className="xs:pb-2 grid w-full grow grid-cols-2 items-center justify-around gap-4 pb-4 lg:flex lg:pb-0">
+    <div className="bg-bg-light border-border bg-gradient-skills relative rounded-2xl border p-3 lg:col-span-2">
+      <h2 className="bento-title whitespace-pre">{"Developer\nTools"}</h2>
+      <div className="grid h-full w-full grid-cols-2 items-center justify-around gap-4 pt-13 lg:flex lg:pt-0 lg:pl-20">
         <TechLogo name="Git" sm>
           <img src={`/logo/git.svg`} alt="git" width={40} height={40} />
         </TechLogo>

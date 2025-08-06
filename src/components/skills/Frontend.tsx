@@ -2,9 +2,9 @@ import TechLogo from "./TechLogo";
 
 const Frontend = () => {
   return (
-    <div className="bg-bg-light border-border bg-gradient-skills col-span-3 rounded-2xl border p-3 lg:col-span-1">
-      <h2 className="pb-4 text-sm font-semibold lg:text-base">Frontend</h2>
-      <div>
+    <div className="bg-bg-light border-border bg-gradient-skills relative col-span-3 rounded-2xl border p-3 lg:col-span-1">
+      <h2 className="bento-title">Frontend</h2>
+      <div className="pt-10">
         <div className="flex justify-around lg:justify-between">
           <TechLogo name={"HTML, CSS &\nJavaScript"} lg>
             <img

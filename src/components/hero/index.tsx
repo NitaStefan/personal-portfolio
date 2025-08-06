@@ -17,12 +17,23 @@ const Hero = () => {
         <MapPin size={18} strokeWidth={1.5} />
         Bucharest, Romania
       </p>
-      <div className="text-text-muted flex gap-6 pt-6 text-xs sm:pt-8 sm:text-sm">
-        <div className="flex flex-col items-center gap-1">
+
+      {/* SOCIALS */}
+      <div className="text-text-muted flex gap-7 pt-6 text-xs sm:gap-8 sm:pt-8">
+        <a
+          className="hover:text-text flex w-12 flex-col items-center gap-1 hover:font-medium"
+          href="https://github.com/NitaStefan"
+          target="_blank"
+        >
           <img src={`/logo/github.svg`} alt="github" width={28} height={28} />
           <p>Github</p>
-        </div>
-        <div className="flex flex-col items-center gap-1">
+        </a>
+
+        <a
+          className="hover:text-text flex w-12 flex-col items-center gap-1 hover:font-medium"
+          href="https://www.linkedin.com/in/stefan-nita-12a656267/"
+          target="_blank"
+        >
           <img
             src={`/logo/linkedin.svg`}
             alt="linkedin"
@@ -30,11 +41,16 @@ const Hero = () => {
             height={28}
           />
           <p>LinkedIn</p>
-        </div>
-        <div className="flex flex-col items-center gap-1">
+        </a>
+
+        <a
+          className="hover:text-text flex w-12 flex-col items-center gap-1 hover:font-medium"
+          href="https://github.com/NitaStefan"
+          target="_blank"
+        >
           <img src={`/logo/resume.svg`} alt="resume" width={28} height={28} />
           <p>Resume</p>
-        </div>
+        </a>
       </div>
 
       <div className="flex flex-col pt-6 sm:gap-2 sm:pt-8">

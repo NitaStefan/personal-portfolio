@@ -54,6 +54,10 @@
   .bg-gradient-skills {
     @apply from-bg-light-accent to-bg-light bg-radial-[at_0%_0%] to-80%;
   }
+
+  .bento-title {
+    @apply bg-bg outline-bg border-border absolute -top-[0.8px] -left-[0.4px] rounded-tl-2xl rounded-br-2xl border-2 px-3 py-1 text-sm font-semibold outline-6 sm:border-3;
+  }
 }
 
 /* FONTS */

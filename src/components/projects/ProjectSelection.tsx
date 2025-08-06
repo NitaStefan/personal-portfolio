@@ -79,7 +79,7 @@ const ProjectSelection = () => {
             </div>
             <div
               className={cn(
-                "absolute top-19.5 left-0 flex w-screen transition-opacity",
+                "pointer-events-none absolute top-19.5 left-0 flex w-screen transition-opacity",
                 selected
                   ? "opacity-100 delay-300 duration-600"
                   : "opacity-0 duration-10",

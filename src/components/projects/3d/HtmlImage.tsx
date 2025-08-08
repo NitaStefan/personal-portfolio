@@ -6,10 +6,12 @@ import * as THREE from "three";
 import { projects, projectTags } from "../../../lib/constants";
 
 const HtmlImage = ({
+  zoomed,
   projectImage,
   ref,
   isLg,
 }: {
+  zoomed: boolean;
   projectImage: {
     project: number;
     image: number;
@@ -36,37 +38,20 @@ const HtmlImage = ({
 
   const noOfImages = projects.map((project) => project.images.length);
 
-  //   import { useEffect } from "react";
-
-  // function Preloader({ urls }: { urls: string[] }) {
-  //   useEffect(() => {
-  //     urls.forEach((url) => {
-  //       const img = new Image();
-  //       img.src = url;
-  //     });
-  //   }, [urls]);
-
-  //   return null; // nothing visible
-  // }
-
-  // // usage
-  // <Preloader urls={[
-  //   "/projects-img/project1-1.png",
-  //   "/projects-img/project1-2.png",
-  //   "/projects-img/project1-3.png",
-  // ]} />
-
   return (
     <Html
       transform
       portal={{ current: gl.domElement.parentNode as HTMLElement }}
       pointerEvents="none"
-      position={[isLg ? -0.018 : 0, 0.075, 0.03]}
+      position={[isLg && !zoomed ? -0.018 : 0, 0.075, 0.03]}
       distanceFactor={1}
     >
       <div ref={divRef} className="perspective-[650px]">
         <div
-          className={cn("flex h-57 w-100 items-center", isLg && "-rotate-y-22")}
+          className={cn(
+            "flex h-57 w-100 items-center transition-transform duration-1000 ease-[cubic-bezier(.16,.59,.33,1)]",
+            isLg && !zoomed ? "-rotate-y-22" : "rotate-y-0",
+          )}
         >
           {Array.from(
             { length: noOfImages[projectImage.project] },

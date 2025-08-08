@@ -10,10 +10,15 @@ const ProjectSelection = () => {
     throw new Error("must be used within a ProjectContext");
   }
 
-  const { projectImage, selectProject } = context;
+  const { zoomed, projectImage, selectProject } = context;
 
   return (
-    <div className="bg-bg-light border-border order-2 flex flex-col gap-1 rounded-2xl border p-2 text-sm font-medium sm:gap-2 sm:text-base lg:w-110">
+    <div
+      className={cn(
+        "bg-bg-light border-border order-2 flex flex-col gap-1 rounded-2xl border p-2 text-sm font-medium transition-opacity duration-300 sm:gap-2 sm:text-base lg:w-110",
+        zoomed && "pointer-events-none opacity-0",
+      )}
+    >
       {projects.map((project, index) => {
         const selected = index === projectImage.project;
 

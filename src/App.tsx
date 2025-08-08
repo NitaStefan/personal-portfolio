@@ -14,11 +14,12 @@ import Monitor from "./components/projects/3d/Monitor";
 import { getTotalContentHeightInPx } from "./lib/utils";
 import { useMediaQuery } from "@react-hook/media-query";
 // import Test3D from "./components/projects/3d/Test3D";
-import { createContext, Suspense, useState } from "react";
+import { createContext, Suspense, useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import { CanvasWrapper } from "@isaac_ua/drei-html-fix";
 
 interface ProjectContextType {
+  zoomed: boolean;
   projectImage: { project: number; image: number };
   selectProject: (index: number) => void;
   selectImage: (index: number) => void;
@@ -32,6 +33,13 @@ function App() {
   const isSmallScreen = useMediaQuery("(min-width: 640px)");
 
   const [projectImage, setProjectImage] = useState({ project: 0, image: 0 });
+  const [zoomed, setZoomed] = useState(false);
+
+  useEffect(() => {
+    if (!isLargeScreen) {
+      setZoomed(false);
+    }
+  }, [isLargeScreen]);
 
   const pages =
     1 +
@@ -41,7 +49,6 @@ function App() {
   return (
     <CanvasWrapper
       canvasProps={{
-        // Use <Canvas> props inside canvasProps
         camera: { fov: 60, position: [0, 0, 5] },
         shadows: true,
         dpr: [1, 2],
@@ -54,7 +61,13 @@ function App() {
         <Scroll>
           {/* <Test3D /> */}
           <Suspense fallback={null}>
-            <Monitor projectImage={projectImage} />
+            <Monitor
+              projectImage={projectImage}
+              zoomed={zoomed}
+              toggleZoom={() =>
+                setZoomed((prev) => (isLargeScreen ? !prev : false))
+              }
+            />
             <Preload all />
           </Suspense>
         </Scroll>
@@ -63,6 +76,7 @@ function App() {
           <main className="mx-auto max-w-[1008.8px] px-5 sm:px-12">
             <ProjectContext.Provider
               value={{
+                zoomed,
                 projectImage,
                 selectProject: (index) =>
                   setProjectImage({ image: 0, project: index }),

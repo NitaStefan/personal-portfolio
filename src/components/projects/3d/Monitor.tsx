@@ -65,16 +65,12 @@ const Monitor = ({
     // Lerp factor: tweak 0.1–>0.2 slower->faster smoothing
     const t = 0.1;
 
-    // Scale (uniform)
     g.scale.lerp(
       new THREE.Vector3(targetScale, targetScale, targetScale),
       t * 1.6,
     );
 
-    // Position X (keep Y/Z from layout)
     g.position.x = THREE.MathUtils.lerp(g.position.x, targetX, t * 0.8);
-    // If you also want to smooth Y when layout changes, uncomment:
-    // g.position.y = THREE.MathUtils.lerp(g.position.y, grPositionY, t);
 
     // Rotation Y
     w.rotation.y = THREE.MathUtils.lerp(w.rotation.y, targetRotY, t * 0.6);
@@ -95,28 +91,39 @@ const Monitor = ({
       <MonitorLight />
       <group ref={wrapperRef} /* rotation will be animated */>
         <primitive
-          onClick={toggleZoom}
-          onPointerOver={() =>
-            (document.body.style.cursor = isLargeScreen
+          onClick={(e: { point: { clone: () => THREE.Vector3 } }) => {
+            if (!monitorRef.current) return;
+
+            const localPoint = monitorRef.current.worldToLocal(e.point.clone());
+
+            if (!zoomed) return toggleZoom();
+            if (localPoint.y > -0.3) toggleZoom();
+          }}
+          onPointerOver={() => {
+            document.body.style.cursor = isLargeScreen
               ? zoomed
                 ? "zoom-out"
                 : "zoom-in"
-              : "auto")
-          }
+              : "auto";
+          }}
           onPointerOut={() => (document.body.style.cursor = "auto")}
           object={monitorScene}
           ref={monitorRef}
         />
-        <group ref={kbMouseRef} position-y={-0.11}>
+        <group
+          ref={kbMouseRef}
+          position-y={-0.11}
+          position-z={zoomed ? 0.2 : 0}
+        >
           <primitive
             object={keyboardScene}
-            position={[-0.11, -0.48, 0.1]}
+            position={[-0.11, -0.48, 0]}
             rotation={[0.4, -0.2, 0]}
             scale={1.2}
           />
           <primitive
             object={mouseScene}
-            position={[0.25, -0.48, 0.1]}
+            position={[0.25, -0.48, 0]}
             rotation={[0.4, 3.4, 0]}
             scale={0.1}
           />
